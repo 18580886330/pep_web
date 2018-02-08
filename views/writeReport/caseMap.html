@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=BfMPrU3FpOOY6P2VNDFv5cUm"></script>
+<style type="text/css">
+.appraisal-map{ width:780px; height:420px; background-color:#f1f1f1; }
+</style>
+</head>
+<body>
+	<input id="obj1" type="hidden" value="" />
+	<input id="obj2" type="hidden" value="" />
+	<!-- 查看实例位置弹窗 -->
+	<div class="appraisal-map" id="appraisalMap"></div>
+	<script type="text/javascript">
+		window.onload = function(){
+			setTimeout(function(){
+				var map = new BMap.Map("appraisalMap");
+		        map.enableScrollWheelZoom();
+		        var pointGJDX=null,pointKBSL=null,markerGJDX=null,markerKBSL=null;
+		        var obj1 = document.getElementById('obj1').value.split(',');
+		        var obj2 = document.getElementById('obj2').value.split(',');
+		        if(obj1[2]){
+		            pointGJDX = new BMap.Point(parseFloat(obj1[0]),parseFloat(obj1[1]));  //估价对象
+		            markerGJDX = new BMap.Marker(pointGJDX);  // 创建估价对象标注
+		            var labelGJDX = new BMap.Label(obj1[2],{offset:new BMap.Size(20,-10)});
+		            markerGJDX.setLabel(labelGJDX);
+		            map.addOverlay(markerGJDX);              // 将估价对象添加到地图中
+		        }
+		        if(obj2[2]){
+		            pointKBSL = new BMap.Point(parseFloat(obj2[0]),parseFloat(obj2[1]));  //可比实例
+		            markerKBSL = new BMap.Marker(pointKBSL);  // 创建可比实例标注
+		            var labelKBSL = new BMap.Label(obj2[2],{offset:new BMap.Size(20,-10)});
+		            markerKBSL.setLabel(labelKBSL);
+		            markerKBSL.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+		            map.addOverlay(markerKBSL);              // 将可比实例添加到地图中
+		        }
+		        map.centerAndZoom((pointKBSL==null)?pointGJDX:pointKBSL, 15);  //将估价对象设为中心点
+	        },100);
+		}
+	</script>
+</body>
+</html>

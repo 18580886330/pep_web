@@ -1,0 +1,61 @@
+<div class="report-search">
+	<div class="report-form">
+		<label class="lable">流水号</label><input type="text" ng-model="e">
+		<label class="lable">报告编号</label><input type="text" ng-model="e">
+		<label class="lable">小区名称</label><input type="text" ng-model="e">
+		<label class="lable">紧急程度</label><select><option value="全部">全部</option></select>
+		<label class="lable">勘查状态</label><select><option value="全部">全部</option></select>
+		<div class="btns"><a href="javascript:;" class="btn btn-blue">查询</a><a href="javascript:;" class="btn btn-red">新建报告</a></div>
+	</div>
+	<div class="tab-content">
+		<ul class="tab-hd">
+			<li>全部</li>
+			<li>撰写中</li>
+			<li>已完成</li>
+			<li>已挂起</li>
+		</ul>
+	</div>
+	<div class="tab-bd">
+		<div class="panel">
+			<table class="table table-background box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<th>序号</th>
+					<th>报告编号</th>
+					<th>流水号(订单号)</th>
+					<th>小区名称</th>
+					<th>项目地址</th>
+					<th>报告状态</th>
+					<th>紧急程度</th>
+					<th>勘查状态</th>
+					<th>操作</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>PH898989898</td>
+					<td>d20160103123</td>
+					<td>车公庄大街9号院</td>
+					<td>西城区车公庄大街9号院五栋大楼B座1单元12层1201号</td>
+					<td>撰写进行中</td>
+					<td>紧急</td>
+					<td>无外采任务</td>
+					<td><a href="javascript:;">撰写</a><a href="javascript:;">挂起</a></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>PH898989898</td>
+					<td>d20160103123</td>
+					<td>车公庄大街9号院</td>
+					<td>西城区车公庄大街9号院五栋大楼B座1单元12层1201号</td>
+					<td>撰写进行中</td>
+					<td>紧急</td>
+					<td>无外采任务</td>
+					<td><a href="javascript:;">撰写</a><a href="javascript:;">挂起</a></td>
+				</tr>
+			</table>
+			<tm-pagination conf="pageConf" class="fr"></tm-pagination>
+		</div>
+		<div class="panel">222</div>
+		<div class="panel">333</div>
+		<div class="panel">444</div>
+	</div>
+</div>

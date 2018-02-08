@@ -1,0 +1,281 @@
+<step-nav></step-nav>
+<div class="calculate-table padding-l-r-20">
+	<div class="tab-content">
+		<!-- calculateTabHd -->
+		<ul class="tab-hd clear">
+			<li><a ui-sref="writeReport.marketApproach">市场法</a></li>
+			<li class="active"><a ui-sref="writeReport.costApproach">成本法</a></li>
+			<li><a ui-sref="writeReport.incomeApproach">收益法</a></li>
+		</ul>
+		<div class="tab-bd clear" id="calculateTabBd">
+			<div class="panel">
+				<div class="costing-content" id="costingContent">
+					<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <tr>
+					    <td style="width:150px;">土地使用权楼面熟地价</td>
+					    <td style="width:310px;" class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_TuDiShiYongQuanLouMianShuDiJia"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：含土地取得费用及土地取得税费">{{ChengBenFaData.n0_ChengBenFa_TuDiShiYongQuanLouMianShuDiJia}}</div> --></td>
+					    <td class="pv padding-3-8" style="width:150px;">土地取得税费<br />
+					      （费率一般不用）</td>
+					    <td style="width:150px;" class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_TuDiQuDeShuiFei"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：含土地取得费用及土地取得税费">{{ChengBenFaData.n0_ChengBenFa_TuDiQuDeShuiFei}}</div> --></td>
+					    <td style="width:150px;" class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_TuDiQuDeShuiFeif"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>土地用途</td>
+					    <td class="pv padding-3"><input class="input" type="text" data-text="说明：估价对象所在区域为居住一级用地，所属区片编号为I-1，其区片楼面熟地价为27930元/平方米。(参考北京市基准地价更新成果[京政发(2014)26号附件])" ng-model="ChengBenFaData.n0_ChengBenFa_TuDiYongTu"><!-- <div class="result-number" data-text="说明：估价对象所在区域为居住一级用地，所属区片编号为I-1，其区片楼面熟地价为27930元/平方米。(参考北京市基准地价更新成果[京政发(2014)26号附件])">{{ChengBenFaData.n0_ChengBenFa_TuDiYongTu}}</div> --></td>
+					    <td>片区编号</td>
+					    <td class="pv padding-3" colspan="2"><div class="select-pull"><select class="down-menu" data-text="说明：估价对象所在区域为居住一级用地，所属区片编号为{{n0_ChengBenFa_PianQuBianHaoRoman}}-{{ChengBenFaData.n0_ChengBenFa_PianQuBianHao}}，其区片楼面熟地价为{{ChengBenFaData.n0_ChengBenFa_ShiYongDeJiZhunDiJiaLouMianShuDiJia}}元/平方米。(参考北京市基准地价更新成果[京政发(2014)26号附件])" ng-model="ChengBenFaData.n0_ChengBenFa_PianQuBianHao" ng-options="PianQuBianHao for PianQuBianHao in ChengBenFaData.n0_ChengBenFa_PianQuBianHaoS"></select></div></td>
+					  </tr>
+					  <tr>
+					    <td>基准地价级别</td>
+					    <td class="pv padding-3"><div class="select-pull"><select class="down-menu" data-text="说明：估价对象所在区域为居住{{n0_ChengBenFa_JiZhunDiJiaJiBieCh}}级用地，所属区片编号为{{ChengBenFaData.n0_ChengBenFa_PianQuBianHao}} - {{ChengBenFaData.n0_ChengBenFa_JiZhunDiJiaJiBie}}，其区片楼面熟地价为{{ChengBenFaData.n0_ChengBenFa_ShiYongDeJiZhunDiJiaLouMianShuDiJia}}元/平方米。(参考北京市基准地价更新成果[京政发(2014)26号附件])" ng-model="ChengBenFaData.n0_ChengBenFa_JiZhunDiJiaJiBie" ng-options="JiZhunDiJiaJiBie for JiZhunDiJiaJiBie in ChengBenFaData.n0_ChengBenFa_JiZhunDiJiaJiBieS"></select></div></td>
+					    <td>级别容积率</td>
+					    <td class="pv padding-3" colspan="2"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_JiBieRongJiLv"><!-- <div class="result-number">{{ChengBenFaData.n0_ChengBenFa_JiBieRongJiLv}}</div> --><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>适用的基准地价</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_ShiYongDeJiZhunDiJiaLouMianShuDiJia"><!-- <div class="result-number">{{ChengBenFaData.n0_ChengBenFa_ShiYongDeJiZhunDiJiaLouMianShuDiJia}}</div> --><span class="pa unit">元</span></td>
+					    <td class="pv padding-3-8">用途修正系数或<br />
+					      地下空间修正系数</td>
+					    <td class="pv padding-3">
+						    <label id="useFactor" class="label input-group" for="useRadio" data-type="true">
+						    	<input class="form-control radio" name="radio-sel" type="radio" checked="" id="useRadio" />
+							    <select style="width:126px;" class="down-menu form-control" ng-model="ChengBenFaData.n0_ChengBenFa_YongTuXiuZhengXiShu" ng-options="YongTuXiuZhengXiShu for YongTuXiuZhengXiShu in ChengBenFaData.n0_ChengBenFa_YongTuXiuZhengXiShuS"></select>
+						    </label>
+					    </td>
+					    <td class="pv padding-3">
+					    	<label id="spaceFactor" class="label input-group" for="undergroundSpace" data-type="true">
+						    	<input class="form-control radio" name="radio-sel" type="radio" id="undergroundSpace" />
+						    	<input class="input form-control" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_DiXiaKongJianXiuZhengXiShu"><span class="pa unit">%</span>
+					    	</label>
+					    </td>
+					  </tr>
+					  <tr>
+					  	<td>开发程度差异值</td>
+					  	<td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KaiFaChengDuChaYiZhi"><span class="pa unit">%</span></td>
+					  	<td class="pv padding-3-8">年修正系数</td>
+					  	<td class="pv padding-3" colspan="2"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_NianQiXiuZhengXiShu"><!-- <div class="result-number">{{ChengBenFaData.n0_ChengBenFa_NianQiXiuZhengXiShu}}</div> --></td>
+				  	  </tr>
+					  <tr>
+					    <td>开发程度差异修正值</td>
+					    <td class="pv padding-3" style="width:150px;"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KaiFaChengDuChaYiXiuZhengZhi"><!-- <div class="result-number" data-text="说明：实际开发程度：七通及场地平整（通上水、通下水、通路、通电、通信、通燃气、通热力）">{{ChengBenFaData.n0_ChengBenFa_KaiFaChengDuChaYiXiuZhengZhi}}</div> --></td>
+					    <td>剩余土地使用年限</td>
+					    <td class="pv padding-3" colspan="2"><input class="input" type="text" data-type="showpic" ng-model="ChengBenFaData.n0_ChengBenFa_ShengYuDeTuDiShiYongNianXian"><!-- <div class="result-number" data-type="showpic">{{ChengBenFaData.n0_ChengBenFa_ShengYuDeTuDiShiYongNianXian}}</div> --><span class="pa unit">年</span></td>
+					  </tr>
+					  <tr>
+					    <td>期日修正系数</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_QiRiXiuZhengXiShu" data-text="说明：基准地价的基准期日为2014年1月1日,考虑北京市地价监测指数及估价对象所在区域状况来确定价值时点的期日修正系数。"></td>
+					    <td>容积率修正系数</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_RongJiLvXiuZhengXiShuf"><!-- <div class="result-number" data-text="说明：容积率无法取得时：（6层以下住宅容积率1.5；6-12层住宅容积率2；12-20层住宅容积率3.5；20层以上住宅容积率4）">{{ChengBenFaData.n0_ChengBenFa_RongJiLvXiuZhengXiShuf}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_RongJiLvXiuZhengXiShu"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>一年贷款利率</td>
+					    <td class="pv padding-3"><input class="input" type="text" data-type="showpic" ng-model="ChengBenFaData.n0_ChengBenFa_YiNianQiDaiKuanLiLv"><span class="pa unit">%</span></td>
+					    <td class="pv padding-3-8">水系/轨道交通站点周边</td>
+					    <td class="pv padding-3"><div class="select-pull">
+					      <select name="select" class="down-menu" data-text="说明：居住用地周边存在对地价有较大影响的其他特殊情况（如垃圾填埋场、污水处理厂、殡葬场、重污染源等），可视影响程度进行其他特殊情况修正，总修正幅度不得超过±10%。" ng-model="ChengBenFaData.n0_ChengBenFa_ShuiXi" ng-options="ShuiXi for ShuiXi in ChengBenFaData.n0_ChengBenFa_ShuiXiS">
+				          </select>
+				        </div></td>
+					    <td class="pv padding-3"><div class="select-pull">
+					      <select name="select2" class="down-menu" ng-model="ChengBenFaData.n0_ChengBenFa_GuiDaoJiaoTongZhanDianZhouBian500MiYiShang" ng-options="GuiDaoJiaoTongZhanDianZhouBian500MiYiShang for GuiDaoJiaoTongZhanDianZhouBian500MiYiShang in ChengBenFaData.n0_ChengBenFa_GuiDaoJiaoTongZhanDianZhouBian500MiYiShangS">
+				          </select>
+				        </div></td>
+					  </tr>
+					  <tr>
+					    <td>法定出让最高年限</td>
+					    <td class="pv padding-3"><input class="input" type="text" data-type="showpic" ng-model="ChengBenFaData.n0_ChengBenFa_FaDingChuRangZuiGaoNianXian"><!-- <div class="result-number" data-type="showpic">{{ChengBenFaData.n0_ChengBenFa_FaDingChuRangZuiGaoNianXian}}</div> --><span class="pa unit">年</span></td>
+					    <td class="pv padding-3-8">中小学名校/其他特殊情况</td>
+					    <td class="pv padding-3"><div class="select-pull">
+					      <select name="select3" class="down-menu" data-text="说明：居住用地周边存在对地价有较大影响的其他特殊情况（如垃圾填埋场、污水处理厂、殡葬场、重污染源等），可视影响程度进行其他特殊情况修正，总修正幅度不得超过±10%。" ng-model="ChengBenFaData.n0_ChengBenFa_ZhongXiaoXueMingXiao" ng-options="ZhongXiaoXueMingXiao for ZhongXiaoXueMingXiao in ChengBenFaData.n0_ChengBenFa_ZhongXiaoXueMingXiaoS">
+				          </select>
+				        </div></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_QiTaTeShuQingKuang"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>因素修正系数</td>
+					    <td class="pv padding-3"><input class="input" type="text" data-text="说明：根据北京市基准地价因素修正体系，估价对象因素修正系数幅度为：±{{ChengBenFaData.n0_ChengBenFa_YinSuXiuZhengXiShu}}%" ng-model="ChengBenFaData.n0_ChengBenFa_YinSuXiuZhengXiShu"><span class="pa unit">%</span></td>
+					    <td class="pv padding-3-8">公园/轨道交通站点周边</td>
+					    <td class="pv padding-3"><div class="select-pull"><select class="down-menu" data-text="说明：居住用地周边存在对地价有较大影响的其他特殊情况（如垃圾填埋场、污水处理厂、殡葬场、重污染源等），可视影响程度进行其他特殊情况修正，总修正幅度不得超过±10%。" ng-model="ChengBenFaData.n0_ChengBenFa_GongYuan" ng-options="n0_ChengBenFa_GongYuan for n0_ChengBenFa_GongYuan in ChengBenFaData.n0_ChengBenFa_GongYuanS"></select></div></td>
+					    <td class="pv padding-3"><div class="select-pull"><select class="down-menu" ng-model="ChengBenFaData.n0_ChengBenFa_GuiDaoJiaoTongZhanDianZhouBian500MiYiXia" ng-options="GuiDaoJiaoTongZhanDianZhouBian500MiYiXia for GuiDaoJiaoTongZhanDianZhouBian500MiYiXia in ChengBenFaData.n0_ChengBenFa_GuiDaoJiaoTongZhanDianZhouBian500MiYiXiaS"></select></div></td>
+				      </tr>
+					  <tr>
+					    <td>土地取得成本</td>
+					    <td class="pv padding-3" colspan="4"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_TuDiQuDeChengBen"><!-- <div class="result-number" data-text="说明：含土地取得费用及土地取得税费"><strong class="link-red">{{ChengBenFaData.n0_ChengBenFa_TuDiQuDeChengBen}}</strong></div> --><span class="pa unit">元</span></td>
+					    </tr>
+					</table>
+					<div class="height10"></div>
+					<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <tr>
+					    <td style="width:139px;">勘查设计</td>
+					    <td style="width:144px;" class="pv padding-3"><!-- <input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KanChaSheJi"> --><!-- <div class="result-number" data-text="说明：主要包括开发项目的前期规划、设计、可行性研究、水文地质勘测、部分场地平整费用。规划设计费按建筑安装工程费的4%测算；可行性研究费及水文、地质勘探所需的费用根据工作量结合有关部门收费标准，按重新购建价格的15%测算。">{{ChengBenFaData.n0_ChengBenFa_KanChaSheJi}}</div> --></td>
+					    <td style="width:136px;" class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KanChaSheJif"><span class="pa unit">%</span></td>
+					    <td style="width:141px;">前期工程费</td>
+					    <td style="width:146px;" class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_QianQiGongChengFei" data-text="说明：主要包括开发项目的前期规划、设计、可行性研究、水文地质勘测、部分场地平整费用。规划设计费按建筑安装工程费的{{ChengBenFaData.n0_ChengBenFa_KanChaSheJif}}%测算；可行性研究费及水文、地质勘探所需的费用根据工作量结合有关部门收费标准，按重新购建价格的{{ChengBenFaData.n0_ChengBenFa_QianQiGongChengFeif}}%测算。"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：主要包括开发项目的前期规划、设计、可行性研究、水文地质勘测、部分场地平整费用。规划设计费按建筑安装工程费的4%测算；可行性研究费及水文、地质勘探所需的费用根据工作量结合有关部门收费标准，按重新购建价格的15%测算。">{{ChengBenFaData.n0_ChengBenFa_QianQiGongChengFei}}</div> --></td>
+					    <td style="width:139px;" class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_QianQiGongChengFeif"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>基础设施建设费</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_JiChuSheShiJianSheFei" data-text="说明：包括城市规划要求配套的道路、给排水、电力、电信、燃气、有线电视等设施的建设费用。按建筑安装工程费的{{ChengBenFaData.n0_ChengBenFa_JiChuSheShiJianSheFeif}}%测算；"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：包括城市规划要求配套的道路、给排水、电力、电信、燃气、有线电视等设施的建设费用。按建筑安装工程费的5%测算；">{{ChengBenFaData.n0_ChengBenFa_JiChuSheShiJianSheFei}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_JiChuSheShiJianSheFeif"><span class="pa unit">%</span></td>
+					    <td>公共配套设施建设费</td>
+						<td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_GongGongPeiTaoSheShiJianSheFei" data-text="说明：指居住小区内为居民服务配套建设的各种非营利性的公共配套设施的建设费用。按建筑安装工程费的{{ChengBenFaData.n0_ChengBenFa_GongGongPeiTaoSheShiJianSheFeif}}%测算；"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：指居住小区内为居民服务配套建设的各种非营利性的公共配套设施的建设费用。按建筑安装工程费的5%测算；">{{ChengBenFaData.n0_ChengBenFa_GongGongPeiTaoSheShiJianSheFei}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_GongGongPeiTaoSheShiJianSheFeif"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>开发期间税费</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KaiFaQiJianShuiFei"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：包括有关部门税收和地方政府或其他有关部门收取的费用，如绿化建设费、人防工程费等。">{{ChengBenFaData.n0_ChengBenFa_KaiFaQiJianShuiFei}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KaiFaQiJianShuiFeif"><span class="pa unit">%</span></td>
+					    <td>管理费用</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_GuanLiFeiYong" data-text="说明：按土地取得成本和开发成本为基数的{{ChengBenFaData.n0_ChengBenFa_GuanLiFeiYongf}}%测算。"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：按土地取得成本和开发成本为基数的3%测算。">{{ChengBenFaData.n0_ChengBenFa_GuanLiFeiYong}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_GuanLiFeiYongf"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>销售费用</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_XiaoShouFeiYong" data-text="说明：按房地产单位面积价格的{{ChengBenFaData.n0_ChengBenFa_XiaoShouFeiYongf}}%测算。"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：按房地产单位面积价格的2%测算。">{{ChengBenFaData.n0_ChengBenFa_XiaoShouFeiYong}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_XiaoShouFeiYongf"><span class="pa unit">%</span></td>
+					    <td>投资利息-开发年限</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_TouZiLiXi"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：以土地取得成本、开发成本、管理费用、销售费用为基数，根据年期选择利率">{{ChengBenFaData.n0_ChengBenFa_TouZiLiXi}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KaiFaNianXianf"><span class="pa unit">年</span></td>
+					  </tr>
+					  <tr>
+					    <td>销售税费</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_XiaoShouShuiFei"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：包括增值税及附加，增值税根据《关于全面推开营业税改增值税试点的通知》(财税[2016]36号）进行计算。">{{ChengBenFaData.n0_ChengBenFa_XiaoShouShuiFei}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_XiaoShouShuiFeif"><span class="pa unit">%</span></td>
+					    <td>投资利息-贷款利率</td>
+					    <td class="pv padding-3"><!-- <div class="result-number" data-text="说明：以土地取得成本、开发成本、管理费用、销售费用为基数，根据年期选择利率">{{ChengBenFaData.n0_ChengBenFa_TouZiLiXi}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_DaiKuanLiLvf"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>开发利润</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KaiFaLiRun"><span class="pa unit">元</span><!-- <div class="result-number" data-text="说明：投资利润率参考类似地区、相当规模档次、相同用途的项目利润水平确定，以土地取得成本、开发成本、管理费用、销售费用之和为基数测算开发利润。一般住宅项目一年期利润在20％左右，二年期利润在30％左右，三年期利润在40％左右。">{{ChengBenFaData.n0_ChengBenFa_KaiFaLiRun}}</div> --></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KaiFaLiRunf"><span class="pa unit">%</span></td>
+					    <td>&nbsp;</td>
+					    <td colspan="2">&nbsp;</td>
+					  </tr>
+					  <tr>
+					    <td>开发成本</td>
+					    <td class="pv padding-3" colspan="2"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_KaiFaChengBen"><!-- <div class="result-number" data-text="说明：建筑安装工程费、勘察设计和前期工程费、基础设施建设费、公共配套设施费、开发期间税费之和。">{{ChengBenFaData.n0_ChengBenFa_KaiFaChengBen}}</div> --><span class="pa unit">元</span></td>
+					    <td>建筑安装工程费</td>
+					    <td class="pv padding-3" colspan="2"><input class="input" type="text" data-text="说明：包括建筑工程费、装饰装修工程费、房屋设备工程费、其他工程费。" ng-model="ChengBenFaData.n0_ChengBenFa_JianZhuAnZhuangGongChengFei"><!-- <div class="result-number" data-text="说明：包括建筑工程费、装饰装修工程费、房屋设备工程费、其他工程费。">{{ChengBenFaData.n0_ChengBenFa_JianZhuAnZhuangGongChengFei}}</div> --><span class="pa unit">元</span></td>
+				      </tr>
+					</table>
+					<div class="height10"></div>
+
+					<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <tr>
+					    <td style="width:144px;">建筑物重新构建价格</td>
+					    <td style="width:299px;" class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_JianZhuWuZhongXinGouJianJiaGe"><!-- <div class="result-number">{{ChengBenFaData.n0_ChengBenFa_JianZhuWuZhongXinGouJianJiaGe}}</div> --><span class="pa unit">元</span></td>
+					    <td style="width:146px;">建筑物经济寿命</td>
+					    <td class="pv padding-3"><input class="input" type="text" data-text="说明：根据建筑物的有效年龄、经济寿命或剩余经济寿命来求取建筑物折旧。（年龄、寿命单位：年）" ng-model="ChengBenFaData.n0_ChengBenFa_JianZhuWuJingJiShouMing"><!-- <div class="result-number" data-text="说明：根据建筑物的有效年龄、经济寿命或剩余经济寿命来求取建筑物折旧。（年龄、寿命单位：年）">{{ChengBenFaData.n0_ChengBenFa_JianZhuWuJingJiShouMing}}</div> --><span class="pa unit">年</span></td>
+					  </tr>
+					  <tr>
+					    <td>有效年龄</td>
+					    <td class="pv padding-3"><input class="input" type="text" data-text="说明：根据建筑物的有效年龄、经济寿命或剩余经济寿命来求取建筑物折旧。（年龄、寿命单位：年）" ng-model="ChengBenFaData.n0_ChengBenFa_YouXiaoNianLing"><!-- <div class="result-number" data-text="说明：根据建筑物的有效年龄、经济寿命或剩余经济寿命来求取建筑物折旧。（年龄、寿命单位：年）">{{ChengBenFaData.n0_ChengBenFa_YouXiaoNianLing}}</div> --><span class="pa unit">年</span></td>
+					    <td>残值率</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_CanZhiLv"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>建筑物折旧</td>
+					    <td class="pv padding-3" colspan="3"><input class="input" type="text" ng-model="ChengBenFaData.n0_ChengBenFa_JianZhuWuZheJiu"><!-- <div class="result-number">{{ChengBenFaData.n0_ChengBenFa_JianZhuWuZheJiu}}</div> --><span class="pa unit">元</span></td>
+				      </tr>
+					</table>
+
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 成本法弹窗 -->
+<div id="popTable" class="none">
+	<div class="pop-table">
+		<p class="title"><strong>用途修正系数</strong></p>
+	    <table class="table table-bordered text-center table-padding-sm table-nomargin" width="100%" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+		    <td rowspan="2">地下空间</td>
+		    <td rowspan="2">适用基准地价</td>
+		    <td rowspan="2">楼层</td>
+		    <td colspan="3">地下空间修正系数</td>
+		    </tr>
+		  <tr>
+		    <td>一至二级</td>
+		    <td>三至七级</td>
+		    <td>八至十二级</td>
+		  </tr>
+		  <tr>
+		    <td rowspan="4">地下商业</td>
+		    <td rowspan="4">商业用途<br />
+		      比准类别</td>
+		    <td>地下第1层</td>
+		    <td>0.8</td>
+		    <td>0.7</td>
+		    <td>0.6</td>
+		  </tr>
+		  <tr>
+		    <td>地下第2层</td>
+		    <td>0.5</td>
+		    <td>0.4</td>
+		    <td>0.3</td>
+		  </tr>
+		  <tr>
+		    <td>地下第3层</td>
+		    <td>0.36</td>
+		    <td>0.28</td>
+		    <td>0.2</td>
+		  </tr>
+		  <tr>
+		    <td>地下第4层<br />
+		      及以下</td>
+		    <td>0.3</td>
+		    <td>0.25</td>
+		    <td>0.2</td>
+		  </tr>
+		  <tr>
+		    <td>地下办公</td>
+		    <td>办公用途<br />
+		      比准类别</td>
+		    <td>&nbsp;</td>
+		    <td>0.3</td>
+		    <td>0.25</td>
+		    <td>0.2</td>
+		  </tr>
+		  <tr>
+		    <td>地下仓储</td>
+		    <td>地上主用途<br />
+		      比准类别</td>
+		    <td>&nbsp;</td>
+		    <td>0.3</td>
+		    <td>0.25</td>
+		    <td>0.2</td>
+		  </tr>
+		  <tr>
+		    <td>地下车库</td>
+		    <td>地上主用途<br />
+		      比准类别</td>
+		    <td>&nbsp;</td>
+		    <td>0.25</td>
+		    <td>0.2</td>
+		    <td>0.15</td>
+		  </tr>
+		</table>
+	    <p class="hint-text">注：地下空间修正系数和用途修正系数，而选其一</p>
+	</div>
+</div>
+
+<div id="popTable2" class="none">
+	<div class="pop-table">
+		<p class="title"><strong>地下空间修正系数</strong></p>
+	    <div class="use">
+	    	<p>居住用地（指二类居住用地，地上容积率≥系数1</p>
+			<p>居住用地（指一类居住用地，地上容积率＜系数1.5</p>
+	    </div>
+	    <p class="hint-text">注：地下空间修正系数和用途修正系数，而选其一</p>
+	</div>
+</div>
+
+<div id="popEquation" class="none">
+	<div class="equation">k=<img src="content/images/equation.jpg" alt=""></div>
+</div>
+
+
+<report-next create-report="createReport()" next-step="nextStep()" prev-step="prevStep()" finish-report="finishReport()" is-show-prev="isShowPrev" is-show-next="isShowNext" is-finish-report="isFinishReport" is-hide-fixcontent="isHideFixcontent" is-show-income="isShowIncome" income-result="n0_ShouYiFa_FangDiChanJiaZhiCeSuanJieGuo" is-show-method="isShowMethod" is-show-costing="isShowCosting" costing-result="n0_ChengBenFa_FangDiChanDanJia"></report-next>

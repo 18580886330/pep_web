@@ -1,0 +1,498 @@
+<step-nav></step-nav>
+<div class="exploration-content padding-l-r-20">
+	<div class="table-title" id="floor_1">现场勘查状况</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 136px;">验房开始时间</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" id="checkDataStart" class="input" placeholder="例：2016-07-15" ng-model="XianChangKanChaData.n0_XianChangKanCha_YanFangKaiShiShiJian"></td>
+			<td style="width: 136px;">验房结束时间</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" id="checkDataEnd" class="input" placeholder="例：2016-07-15" ng-model="XianChangKanChaData.n0_XianChangKanCha_YanFangJieShuShiJian"></td>
+		</tr>
+		<tr>
+			<td>实地查勘时间</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="未使用外采系统，请在“验房开始时间”处填写勘查日期" ng-model="XianChangKanChaData.n0_XianChangKanCha_ShiDiKanChaQi"></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	<div class="table-title" id="floor_2">位置状况</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 136px;">方位(环线)</td>
+			<td style="width: 310px;" class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_FangWeiHuanXian" ng-options="FangWeiHuanXian for FangWeiHuanXian in XianChangKanChaData.n0_XianChangKanCha_FangWeiHuanXianS"></select></div></td>
+			<td style="width: 136px;">方位(方向和位置)</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" placeholder="例：位于**市中部或者位于**路东北角或者位于**路" ng-model="XianChangKanChaData.n0_XianChangKanCha_FangWeiFangXiangHeWeiZhi"></td>
+		</tr>
+		<tr>
+			<td>临街(路)状况</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_LinJieZhuangKuang" ng-options="n0_XianChangKanCha_LinJieZhuangKuang for n0_XianChangKanCha_LinJieZhuangKuang in XianChangKanChaData.n0_XianChangKanCha_LinJieZhuangKuangS"></select></div></td>
+			<td>所在层</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例：23层" ng-model="XianChangKanChaData.n0_XianChangKanCha_SuoZaiCeng"></td>
+		</tr>
+		<tr>
+			<td>朝向</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_ChaoXiang" ng-options="n0_XianChangKanCha_ChaoXiang for n0_XianChangKanCha_ChaoXiang in XianChangKanChaData.n0_XianChangKanCha_ChaoXiangS"></select></div></td>
+			<td>主卧朝向</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_ZhuWoChaoXiang" ng-options="n0_XianChangKanCha_ZhuWoChaoXiang for n0_XianChangKanCha_ZhuWoChaoXiang in XianChangKanChaData.n0_XianChangKanCha_ZhuWoChaoXiangS"></select></div></td>
+		</tr>
+		<tr>
+			<td>次卧朝向</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_CiWoChaoXiang" ng-options="n0_XianChangKanCha_CiWoChaoXiang for n0_XianChangKanCha_CiWoChaoXiang in XianChangKanChaData.n0_XianChangKanCha_CiWoChaoXiang"></select></div></td>
+			<td>客厅朝向</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_KeTingChaoXiang" ng-options="n0_XianChangKanCha_KeTingChaoXiang for n0_XianChangKanCha_KeTingChaoXiang in XianChangKanChaData.n0_XianChangKanCha_KeTingChaoXiangS"></select></div></td>
+		</tr>
+		<tr>
+			<td>阳台朝向</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_YangTaiChaoXiang" ng-options="n0_XianChangKanCha_YangTaiChaoXiang for n0_XianChangKanCha_YangTaiChaoXiang in XianChangKanChaData.n0_XianChangKanCha_YangTaiChaoXiangS"></select></div></td>
+			<td>位置状况分析</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="WeiZhiZhuangKuangFenXi in XianChangKanChaData.n0_XianChangKanCha_WeiZhiZhuangKuangFenXiS track by $index">
+						<input type="radio" value="{{WeiZhiZhuangKuangFenXi}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_WeiZhiZhuangKuangFenXi">{{WeiZhiZhuangKuangFenXi}}
+					</label>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="table-title" id="floor_3">交通状况</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 136px;">区域主要道路</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" placeholder="城区主要道路，多条道路时用“、”分开" ng-model="XianChangKanChaData.n0_XianChangKanCha_QuYuZhuYaoDaoLu"></td>
+			<td style="width: 136px;">道路类型</td>
+			<td style="width: 310px;" class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="DaoLuLeiXing in XianChangKanChaData.n0_XianChangKanCha_DaoLuLeiXingS track by $index"><input type="radio" value="{{DaoLuLeiXing}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_DaoLuLeiXing">{{DaoLuLeiXing}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>公共交通站点</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="多个站点时，以顿号“、”分开" ng-model="XianChangKanChaData.n0_XianChangKanCha_GongGongJiaoTongZhanDian"></td>
+			<td>交通管制情况</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="JiaoTongGuanZhiQingKuang in XianChangKanChaData.n0_XianChangKanCha_JiaoTongGuanZhiQingKuangS"><input type="radio" value="{{JiaoTongGuanZhiQingKuang}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_JiaoTongGuanZhiQingKuang">{{JiaoTongGuanZhiQingKuang}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>公共交通线路</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="101、102路；多条线路时，以顿号“、”分开" ng-model="XianChangKanChaData.n0_XianChangKanCha_GongGongJiaoTongXianLu"></td>
+			<td>停车方便程度</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="TingCheFangBianChengDu in XianChangKanChaData.n0_XianChangKanCha_TingCheFangBianChengDuS track by $index"><input type="radio" value="{{TingCheFangBianChengDu}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_TingCheFangBianChengDu">{{TingCheFangBianChengDu}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>轨道交通站点</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="多个站点时，以顿号“、”分开" ng-model="XianChangKanChaData.n0_XianChangKanCha_GuiDaoJiaoTongZhanDian"></td>
+			<td>交通状况分析</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="JiaoTongZhuangKuangFenXi in XianChangKanChaData.n0_XianChangKanCha_JiaoTongZhuangKuangFenXiS track by $index"><input type="radio" value="{{JiaoTongZhuangKuangFenXi}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_JiaoTongZhuangKuangFenXi">{{JiaoTongZhuangKuangFenXi}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>轨道交通路线</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="多条线路时，以顿号“、”分开" ng-model="XianChangKanChaData.n0_XianChangKanCha_GuiDaoJiaoTongXianLu"></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	<div class="table-title" id="floor_4">环境状况</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 136px;">自然环境</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" placeholder="环境是否优美、整洁，有无噪声、污水、辐射等" ng-model="XianChangKanChaData.n0_XianChangKanCha_ZiRanHuanJing"></td>
+			<td style="width: 136px;">景观</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" placeholder="有无水景(海景、江景、河景、湖景等)、山景" ng-model="XianChangKanChaData.n0_XianChangKanCha_JingGuan"></td>
+		</tr>
+		<tr>
+			<td>人文环境</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="所在地区的声誉、居民特征、治安状况等" ng-model="XianChangKanChaData.n0_XianChangKanCha_RenWenHuanJing"></td>
+			<td>环境状况分析</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="HuanJingZhuangKuangFenXi in XianChangKanChaData.n0_XianChangKanCha_HuanJingZhuangKuangFenXiS track by $index"><input type="radio" value="{{HuanJingZhuangKuangFenXi}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_HuanJingZhuangKuangFenXi">{{HuanJingZhuangKuangFenXi}}</label>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="table-title" id="floor_5">外部配套设施</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 136px;">生活服务设施-银行</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" placeholder="例如：中国银行" ng-model="XianChangKanChaData.n0_XianChangKanCha_YinXing"></td>
+			<td style="width: 136px;">教育配套设施-幼儿园</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" placeholder="例如：二十一世纪幼儿园" ng-model="XianChangKanChaData.n0_XianChangKanCha_YouErYuan"></td>
+		</tr>
+		<tr>
+			<td>生活服务设施-超市</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：家乐福超市" ng-model="XianChangKanChaData.n0_XianChangKanCha_ChaoShi"></td>
+			<td>教育配套设施-中小学</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：第五十一中学" ng-model="XianChangKanChaData.n0_XianChangKanCha_ZhongXiaoXue"></td>
+		</tr>
+		<tr>
+			<td>生活服务设施-商场</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：华堂商场" ng-model="XianChangKanChaData.n0_XianChangKanCha_ShangChang"></td>
+			<td>休闲娱乐健身设施</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：十二星座健身馆" ng-model="XianChangKanChaData.n0_XianChangKanCha_XiuXianYuLeJianShenSheShi"></td>
+		</tr>
+		<tr>
+			<td>生活服务设施-医院</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：展览路医院" ng-model="XianChangKanChaData.n0_XianChangKanCha_YiYuan"></td>
+			<td>其他设施</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="其他设施" ng-model="XianChangKanChaData.n0_XianChangKanCha_QiTaSheShi"></td>
+		</tr>
+		<tr>
+			<td>(多选)[{{baseQiTong || '--'}}]基础设施(红线内)</td>
+			<td class="padding-3">
+				<div class="checkbox-panel" id="baseQiTong">
+					<label ng-repeat="QiTongYiPing in XianChangKanChaData.n0_XianChangKanCha_JiChuSheShiS">
+						<input class="checkbox" type="checkbox" value="{{QiTongYiPing}}" ng-checked="isChecked(QiTongYiPing,'XianChangKanChaData.n0_XianChangKanCha_JiChuSheShi')" ng-click="checkboxCick($event,'baseQiTong')" data-model="XianChangKanChaData.n0_XianChangKanCha_JiChuSheShi">{{QiTongYiPing}}
+					</label>
+				</div>
+			</td>
+			<td>外部配套设施</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="WaiBuPeiTaoSheShiFenXi in XianChangKanChaData.n0_XianChangKanCha_WaiBuPeiTaoSheShiFenXiS track by $index"><input type="radio" value="{{WaiBuPeiTaoSheShiFenXi}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_WaiBuPeiTaoSheShiFenXi">{{WaiBuPeiTaoSheShiFenXi}}</label>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="table-title" id="floor_6">土地实物状况</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 136px;">宗地形状</td>
+			<td style="width: 310px;" class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="ZongDiXingZhuang in XianChangKanChaData.n0_XianChangKanCha_ZongDiXingZhuangS"><input type="radio" value="{{ZongDiXingZhuang}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_ZongDiXingZhuang">{{ZongDiXingZhuang}}</label>
+				</div>
+			</td>
+			<td style="width: 136px;">四至-东至</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" placeholder="例：机场5公里" ng-model="XianChangKanChaData.n0_XianChangKanCha_DongZhi"></td>
+		</tr>
+		<tr>
+			<td>地形</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="DiXing in XianChangKanChaData.n0_XianChangKanCha_DiXingS track by $index"><input type="radio" value="{{DiXing}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_DiXing">{{DiXing}}</label>
+				</div>
+			</td>
+			<td>四至-西至</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例：机场5公里" ng-model="XianChangKanChaData.n0_XianChangKanCha_XiZhi"></td>
+		</tr>
+		<tr>
+			<td>地势</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="DiShi in XianChangKanChaData.n0_XianChangKanCha_DiShiS track by $index"><input type="radio" value="{{DiShi}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_DiShi">{{DiShi}}</label>
+				</div>
+			</td>
+			<td>四至-南至</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例：机场5公里" ng-model="XianChangKanChaData.n0_XianChangKanCha_NanZhi"></td>
+		</tr>
+		<tr>
+			<td>场地平整情况</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="ChangDiPingZhengQingKuang in XianChangKanChaData.n0_XianChangKanCha_ChangDiPingZhengQingKuangS track by $index"><input type="radio" value="{{ChangDiPingZhengQingKuang}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_ChangDiPingZhengQingKuang">{{ChangDiPingZhengQingKuang}}</label>
+				</div>
+			</td>
+			<td>四至-北至</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例：展览路" ng-model="XianChangKanChaData.n0_XianChangKanCha_BeiZhi"></td>
+		</tr>
+		<tr>
+			<td>(多选)开发程度(红线内)</td>
+			<td class="padding-3">
+				<div class="checkbox-panel">
+					<label ng-repeat="KaiFaChengDu in XianChangKanChaData.n0_XianChangKanCha_KaiFaChengDuS track by $index">
+						<input type="checkbox" value="{{KaiFaChengDu}}" ng-checked="isChecked(KaiFaChengDu,'XianChangKanChaData.n0_XianChangKanCha_KaiFaChengDu')" ng-click="checkboxCick($event)" data-model="XianChangKanChaData.n0_XianChangKanCha_KaiFaChengDu">{{KaiFaChengDu}}
+					</label>
+				</div>
+			</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	<div class="table-title" id="floor_7">建筑实物—建筑基础信息</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 136px;">小区名称</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" placeholder="例如：富锦家园" ng-model="XianChangKanChaData.n0_XianChangKanCha_XiaoQuMingChen"></td>
+			<td style="width: 136px;">小区环境</td>
+			<td style="width: 310px;" class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_XiaoQuHuanJing" ng-options="n0_XianChangKanCha_XiaoQuHuanJing for n0_XianChangKanCha_XiaoQuHuanJing in XianChangKanChaData.n0_XianChangKanCha_XiaoQuHuanJingS"></select></div></td>
+		</tr>
+		<tr>
+			<td>入住率</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：90%" ng-model="XianChangKanChaData.n0_XianChangKanCha_RuZhuLv"></td>
+			<td>建成年代</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：2003" ng-model="XianChangKanChaData.n0_XianChangKanCha_JianChengNianDai"></td>
+		</tr>
+		<tr>
+			<td>物业管理水平</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="WuYeGuanLiShuiPing in XianChangKanChaData.n0_XianChangKanCha_WuYeGuanLiShuiPingS track by $index"><input type="radio" value="{{WuYeGuanLiShuiPing}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_WuYeGuanLiShuiPing">{{WuYeGuanLiShuiPing}}</label>
+				</div>
+			</td>
+			<td>总楼层</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：20" ng-model="XianChangKanChaData.n0_XianChangKanCha_ZongLouCeng"></td>
+		</tr>
+		<tr>
+			<td>物业管理费</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：233.33元" ng-model="XianChangKanChaData.n0_XianChangKanCha_WuYeGuanLiFei"></td>
+			<td>层高</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：15" ng-model="XianChangKanChaData.n0_XianChangKanCha_CengGao"></td>
+		</tr>
+		<tr>
+			<td>24小时保安</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="XiaoShiBaoAn in XianChangKanChaData.n0_XianChangKanCha_24XiaoShiBaoAnS track by $index"><input type="radio" value="{{XiaoShiBaoAn}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_24XiaoShiBaoAn">{{XiaoShiBaoAn}}</label>
+				</div>
+			</td>
+			<td>实际用途</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_ShiJiYongTu" ng-options="n0_XianChangKanCha_ShiJiYongTu for n0_XianChangKanCha_ShiJiYongTu in XianChangKanChaData.n0_XianChangKanCha_ShiJiYongTuS"></select></div></td>
+		</tr>
+		<tr>
+			<td>小区监视系统</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="XiaoQuJianShiXiTong in XianChangKanChaData.n0_XianChangKanCha_XiaoQuJianShiXiTongS track by $index"><input type="radio" value="{{XiaoQuJianShiXiTong}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_XiaoQuJianShiXiTong">{{XiaoQuJianShiXiTong}}</label>
+				</div>
+			</td>
+			<td>利用现状</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="LiYongXianZhuang in XianChangKanChaData.n0_XianChangKanCha_LiYongXianZhuangS track by $index"><input type="radio" value="{{LiYongXianZhuang}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_LiYongXianZhuang">{{LiYongXianZhuang}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>门禁系统</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="MenJinXiTong in XianChangKanChaData.n0_XianChangKanCha_MenJinXiTongS track by $index"><input type="radio" value="{{MenJinXiTong}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_MenJinXiTong">{{MenJinXiTong}}</label>
+				</div>
+			</td>
+			<td>通风及采光状况</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="TongFengJiCaiGuangZhuangKuang in XianChangKanChaData.n0_XianChangKanCha_TongFengJiCaiGuangZhuangKuangS track by $index"><input type="radio" value="{{TongFengJiCaiGuangZhuangKuang}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_TongFengJiCaiGuangZhuangKuang">{{TongFengJiCaiGuangZhuangKuang}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>车位</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="CheWei in XianChangKanChaData.n0_XianChangKanCha_CheWeiS track by $index"><input type="radio" value="{{CheWei}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_CheWei">{{CheWei}}</label>
+				</div>
+			</td>
+			<td>户型</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_HuXing" ng-options="n0_XianChangKanCha_HuXing for n0_XianChangKanCha_HuXing in XianChangKanChaData.n0_XianChangKanCha_HuXingS"></select></div></td>
+		</tr>
+		<tr>
+			<td>建筑类别</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_JianZhuLeiBie" ng-options="n0_XianChangKanCha_JianZhuLeiBie for n0_XianChangKanCha_JianZhuLeiBie in XianChangKanChaData.n0_XianChangKanCha_JianZhuLeiBie"></select></div></td>
+			<td>空间布局</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="KongJianBuJu in XianChangKanChaData.n0_XianChangKanCha_KongJianBuJuS track by $index"><input type="radio" value="{{KongJianBuJu}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_KongJianBuJu">{{KongJianBuJu}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>外立面装饰</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WaiLiMianZhuangShi" ng-options="n0_XianChangKanCha_WaiLiMianZhuangShi for n0_XianChangKanCha_WaiLiMianZhuangShi in XianChangKanChaData.n0_XianChangKanCha_WaiLiMianZhuangShiS"></select></div></td>
+			<td>景观房</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" placeholder="有无水景(海景、江景、河景、湖景等)、山景" ng-model="XianChangKanChaData.n0_XianChangKanCha_JingGuanFang"></td>
+		</tr>
+		<tr>
+			<td>公共部分装修</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="GongGongBuFenZhuangXiu in XianChangKanChaData.n0_XianChangKanCha_GongGongBuFenZhuangXiuS track by $index"><input type="radio" value="{{GongGongBuFenZhuangXiu}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_GongGongBuFenZhuangXiu">{{GongGongBuFenZhuangXiu}}</label>
+				</div>
+			</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	<div class="table-title" id="floor_8">建筑实物—装饰装修信息</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 136px;">装修程度</td>
+			<td style="width: 310px;" class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_ZhuangXiuChengDu" ng-options="n0_XianChangKanCha_ZhuangXiuChengDu for n0_XianChangKanCha_ZhuangXiuChengDu in XianChangKanChaData.n0_XianChangKanCha_ZhuangXiuChengDuS"></select></div></td>
+			<td style="width: 136px;">卫生间顶棚</td>
+			<td style="width: 310px;" class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WeiShengJianDingPeng" ng-options="n0_XianChangKanCha_WeiShengJianDingPeng for n0_XianChangKanCha_WeiShengJianDingPeng in XianChangKanChaData.n0_XianChangKanCha_WeiShengJianDingPengS"></select></div></td>
+		</tr>
+		<tr>
+			<td>客厅顶棚</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_KeTingDingPeng" ng-options="n0_XianChangKanCha_KeTingDingPeng for n0_XianChangKanCha_KeTingDingPeng in XianChangKanChaData.n0_XianChangKanCha_KeTingDingPengS"></select></div></td>
+			<td>卫生间墙面</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WeiShengJianQiangMian" ng-options="n0_XianChangKanCha_WeiShengJianQiangMian for n0_XianChangKanCha_WeiShengJianQiangMian in XianChangKanChaData.n0_XianChangKanCha_WeiShengJianQiangMianS"></select></div></td>
+		</tr>
+		<tr>
+			<td>客厅墙面</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_KeTingQiangMian" ng-options="n0_XianChangKanCha_KeTingQiangMian for n0_XianChangKanCha_KeTingQiangMian in XianChangKanChaData.n0_XianChangKanCha_KeTingQiangMianS"></select></div></td>
+			<td>卫生间地面</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WeiShengJianDiMian" ng-options="n0_XianChangKanCha_WeiShengJianDiMian for n0_XianChangKanCha_WeiShengJianDiMian in XianChangKanChaData.n0_XianChangKanCha_WeiShengJianDiMianS"></select></div></td>
+		</tr>
+		<tr>
+			<td>客厅地面</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_KeTingDiMian" ng-options="n0_XianChangKanCha_KeTingDiMian for n0_XianChangKanCha_KeTingDiMian in XianChangKanChaData.n0_XianChangKanCha_KeTingDiMianS"></select></div></td>
+			<td>卫生间其他</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WeiShengJianQiTa" ng-options="n0_XianChangKanCha_WeiShengJianQiTa for n0_XianChangKanCha_WeiShengJianQiTa in XianChangKanChaData.n0_XianChangKanCha_WeiShengJianQiTaS"></select></div></td>
+		</tr>
+		<tr>
+			<td>客厅其他</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_KeTingQiTa" ng-options="n0_XianChangKanCha_KeTingQiTa for n0_XianChangKanCha_KeTingQiTa in XianChangKanChaData.n0_XianChangKanCha_KeTingQiTaS"></select></div></td>
+			<td>厨房顶棚</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_ChuFangDingPeng" ng-options="n0_XianChangKanCha_ChuFangDingPeng for n0_XianChangKanCha_ChuFangDingPeng in XianChangKanChaData.n0_XianChangKanCha_ChuFangDingPengS"></select></div></td>
+		</tr>
+		<tr>
+			<td>卧室顶棚</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WoShiDingPeng" ng-options="n0_XianChangKanCha_WoShiDingPeng for n0_XianChangKanCha_WoShiDingPeng in XianChangKanChaData.n0_XianChangKanCha_WoShiDingPengS"></select></div></td>
+			<td>厨房墙面</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_ChuFangQiangMian" ng-options="n0_XianChangKanCha_ChuFangQiangMian for n0_XianChangKanCha_ChuFangQiangMian in XianChangKanChaData.n0_XianChangKanCha_ChuFangQiangMianS"></select></div></td>
+		</tr>
+		<tr>
+			<td>卧室墙面</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WoShiQiangMian" ng-options="n0_XianChangKanCha_WoShiQiangMian for n0_XianChangKanCha_WoShiQiangMian in XianChangKanChaData.n0_XianChangKanCha_WoShiQiangMianS"></select></div></td>
+			<td>厨房地面</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_ChuFangDiMian" ng-options="n0_XianChangKanCha_ChuFangDiMian for n0_XianChangKanCha_ChuFangDiMian in XianChangKanChaData.n0_XianChangKanCha_ChuFangDiMianS"></select></div></td>
+		</tr>
+		<tr>
+			<td>卧室地面</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WoShiDiMian" ng-options="n0_XianChangKanCha_WoShiDiMian for n0_XianChangKanCha_WoShiDiMian in XianChangKanChaData.n0_XianChangKanCha_WoShiDiMianS"></select></div></td>
+			<td>厨房其他</td>
+			<td class="padding-3">
+				<div class="select-pull">
+					<select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_ChuFangQiTa" ng-options="n0_XianChangKanCha_ChuFangQiTa for n0_XianChangKanCha_ChuFangQiTa in XianChangKanChaData.n0_XianChangKanCha_ChuFangQiTaS"></select>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>卧室其他</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WoShiQiTa" ng-options="n0_XianChangKanCha_WoShiQiTa for n0_XianChangKanCha_WoShiQiTa in XianChangKanChaData.n0_XianChangKanCha_WoShiQiTaS"></select></div></td>
+			<td>门</td>
+			<td class="padding-3">
+				<div class="select-pull">
+					<select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_Men" ng-options="n0_XianChangKanCha_Men for n0_XianChangKanCha_Men in XianChangKanChaData.n0_XianChangKanCha_MenS"></select>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>窗</td>
+			<td class="padding-3">
+				<div class="select-pull">
+					<select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_Chuang" ng-options="Chuang for Chuang in XianChangKanChaData.n0_XianChangKanCha_ChuangS"></select>
+				</div>
+			</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	<div class="table-title" id="floor_9">建筑实物—设施设备状况</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 136px;">24小时热水</td>
+			<td style="width: 310px;" class="padding-3">
+				<div class="radios-panel">
+					<label><input type="radio" value="有" ng-model="XianChangKanChaData.n0_XianChangKanCha_24XiaoShiReShui">有</label>
+					<label><input type="radio" value="无" ng-model="XianChangKanChaData.n0_XianChangKanCha_24XiaoShiReShui">无</label>
+				</div>
+			</td>
+			<td style="width: 136px;">消防设施</td>
+			<td style="width: 310px;" class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="XiaoFangSheShi in XianChangKanChaData.n0_XianChangKanCha_XiaoFangSheShiS track by $index"><input type="radio" value="{{XiaoFangSheShi}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_XiaoFangSheShi">{{XiaoFangSheShi}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>电梯数量</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="DianTiShuLiang in XianChangKanChaData.n0_XianChangKanCha_DianTiShuLiangS track by $index"><input type="radio" value="{{DianTiShuLiang}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_DianTiShuLiang">{{DianTiShuLiang}}</label>
+				</div>
+			</td>
+			<td>使用及维修状况</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="ShiYongJiWeiXiuZhuangKuang in XianChangKanChaData.n0_XianChangKanCha_ShiYongJiWeiXiuZhuangKuangS track by $index"><input type="radio" value="{{ShiYongJiWeiXiuZhuangKuang}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_ShiYongJiWeiXiuZhuangKuang">{{ShiYongJiWeiXiuZhuangKuang}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>完损状况</td>
+			<td class="padding-3">
+				<div class="select-pull">
+					<select class="down-menu" ng-model="XianChangKanChaData.n0_XianChangKanCha_WanSunZhuangKuang" ng-options="WanSunZhuangKuang for WanSunZhuangKuang in XianChangKanChaData.n0_XianChangKanCha_WanSunZhuangKuangS"></select>
+				</div>
+			</td>
+			<td>是否入户</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="ShiFuRuHu in XianChangKanChaData.n0_XianChangKanCha_ShiFuRuHuS track by $index"><input type="radio" value="{{ShiFuRuHu}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_ShiFuRuHu">{{ShiFuRuHu}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>物理结构是否变化</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="WuLiJieGouShiFuBianHua in XianChangKanChaData.n0_XianChangKanCha_WuLiJieGouShiFuBianHuaS track by $index"><input type="radio" value="{{WuLiJieGouShiFuBianHua}}" ng-model="XianChangKanChaData.n0_XianChangKanCha_WuLiJieGouShiFuBianHua">{{WuLiJieGouShiFuBianHua}}</label>
+				</div>
+			</td>
+			<td>其他影响因素</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="XianChangKanChaData.n0_XianChangKanCha_QiTaYingXiangYinSu"></td>
+		</tr>
+		<tr>
+			<td>物理结构情况</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="XianChangKanChaData.n0_XianChangKanCha_WuLiJieGouQingKuang"></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</div>
+
+<div class="floor-content" id="floorContent">
+	<div class="floor-min" ng-show="showFixType=='min'">
+		<a href="javascript:;" class="f-link icon floor_0" data-type="top" ng-click="test()"></a>
+		<a href="javascript:;" class="f-link icon floor_1" data-type="floor_1"><div class="text">现场勘查</div></a>
+		<a href="javascript:;" class="f-link icon floor_2" data-type="floor_2"><div class="text">位置状况</div></a>
+		<a href="javascript:;" class="f-link icon floor_3" data-type="floor_3"><div class="text">交通状况</div></a>
+		<a href="javascript:;" class="f-link icon floor_4" data-type="floor_4"><div class="text">环境状况</div></a>
+		<a href="javascript:;" class="f-link icon floor_5" data-type="floor_5"><div class="text">外部配套设施</div></a>
+		<a href="javascript:;" class="f-link icon floor_5" data-type="floor_6"><div class="text">土地实物状况</div></a>
+		<a href="javascript:;" class="f-link icon floor_6" data-type="floor_7"><div class="text"><p>建筑实物</p><p>装饰装修信息</p></div></a>
+		<a href="javascript:;" class="f-link icon floor_7" data-type="floor_8"><div class="text"><p>建筑物实物</p><p>设施设备状况</p></div></a>
+	</div>
+	<div class="floor-max" ng-show="showFixType=='max'">
+		<a class="f-link" href="javascript:;" data-type="top" ng-click="test()"><b class="icon top"></b>回到顶部</a>
+		<a class="f-link" href="javascript:;" data-type="floor_1">现场勘查</a>
+		<a class="f-link" href="javascript:;" data-type="floor_2">位置状况</a>
+		<a class="f-link" href="javascript:;" data-type="floor_3">交通状况</a>
+		<a class="f-link" href="javascript:;" data-type="floor_4">环境状况</a>
+		<a class="f-link" href="javascript:;" data-type="floor_5">外部配套设施</a>
+		<a class="f-link" href="javascript:;" data-type="floor_6">土地实物状况</a>
+		<a class="f-link" href="javascript:;" data-type="floor_7">
+			<p>建筑实物</p>
+			<p>装饰装修信息</p>
+		</a>
+		<a class="f-link" href="javascript:;" data-type="floor_8">
+			<p>建筑物实物</p>
+			<p>设施设备状况</p>
+		</a>
+	</div>
+</div>
+
+<report-next create-report="createReport()" next-step="nextStep()" prev-step="prevStep()" finish-report="finishReport()" is-show-prev="isShowPrev" is-show-next="isShowNext" is-finish-report="isFinishReport" is-hide-fixcontent="isHideFixcontent" is-show-income="isShowIncome" income-result="n0_ShouYiFa_FangDiChanJiaZhiCeSuanJieGuo" is-show-method="isShowMethod" is-show-costing="isShowCosting" costing-result="n0_ChengBenFa_FangDiChanDanJia"></report-next>

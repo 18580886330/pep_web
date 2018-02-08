@@ -1,0 +1,248 @@
+<step-nav></step-nav>
+<div class="interests-content padding-l-r-20">
+	<div class="table-title">估价委托方信息—建筑物权益</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 138px;">房屋所有权证类型</td>
+			<td style="width: 310px;" class="padding-3">
+				<div class="radios-panel">
+					<label><input type="radio" value="房屋所有权证" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FangWuSuoYouQuanZhengLeiXing">房屋所有权证</label>
+					<label><input type="radio" value="房产所有证" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FangWuSuoYouQuanZhengLeiXing">房产所有证</label>
+				</div>
+			</td>
+			<td style="width: 138px;">所有权人性质</td>
+			<td style="width: 310px;" class="padding-3">
+				<div class="radios-panel">
+					<label><input type="radio" value="个人产权" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoYouQuanRenXingZhi">个人产权</label>
+					<label><input type="radio" value="非个人产权" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoYouQuanRenXingZhi">非个人产权</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>房屋所有权证证号</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FangWuSuoYouQuanZhengZhengHao"></td>
+			<td>房屋所有权人</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FangWuSuoYouQuanRen"></td>
+		</tr>
+		<tr>
+			<td>产权性质</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_ChanQuanXingZhi" ng-options="ChanQuanXingZhi for ChanQuanXingZhi in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_ChanQuanXingZhiS"></select></div></td>
+			<td>设定用途</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="SheDingYongTu in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SheDingYongTuS track by $index"><input type="radio" ng-value="SheDingYongTu" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SheDingYongTu">{{SheDingYongTu}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>产别</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SheDingYongTu" ng-options="SheDingYongTu for SheDingYongTu in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SheDingYongTuS track by $index"></select></div></td>
+			<td>建成年代</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_JianChengNianDai" placeholder="例：2010"></td>
+		</tr>
+		<tr>
+			<td>登记用途</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="DengJiYongTu in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_DengJiYongTuS track by $index"><input type="radio" ng-value="DengJiYongTu" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_DengJiYongTu">{{DengJiYongTu}}</label>
+				</div>
+			</td>
+			<td>登记日期</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_DengJiRiQi" placeholder="例：2016-08-09"></td>
+		</tr>
+		<tr>
+			<td>建成年代来源</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="JianChengNianDaiLaiYuan in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_JianChengNianDaiLaiYuanS track by $index"><input type="radio" ng-value="JianChengNianDaiLaiYuan" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_JianChengNianDaiLaiYuan">调查</label>
+				</div>
+			</td>
+			<td>总楼层</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_ZongLouCeng" placeholder="例：12层"></td>
+		</tr>
+		<tr>
+			<td>建筑结构</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_JianZhuJieGou" ng-options="JianZhuJieGou for JianZhuJieGou in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_JianZhuJieGouS"></select></div></td>
+			<td>所在楼层</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoZaiLouCeng" placeholder="例：10层"></td>
+		</tr>
+		<tr>
+			<td>建筑面积</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_JianZhuMianJi" placeholder="例：10层"></td>
+			<td>面积详情</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_MianJiXiangQing"></td>
+		</tr>
+	</table>
+	<div class="table-title">土地权益</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 138px;">土地坐落</td>
+			<td class="padding-3" colspan="3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiZuoLuo"></td>
+		</tr>
+		<tr>
+			<td style="width: 138px;">国家土地使用证号</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_GuoJiaTuDiShiYongZhengHao" placeholder="例：张三"></td>
+			<td style="width: 138px;">土地使用权人</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiShiYongQuanRen" placeholder="例：张三"></td>
+		</tr>
+		<tr>
+			<td>发证日期</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FaZhengRiQi" placeholder="例：2016-08-09"></td>
+			<td>终止日期</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_ZhongZhiRiQi" placeholder="例：2016-08-09"></td>
+		</tr>
+		<tr>
+			<td>*土地使用权类型</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="TuDiShiYongQuanLeiXing in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiShiYongQuanLeiXingS track by $index"><input type="radio" ng-value="TuDiShiYongQuanLeiXing" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiShiYongQuanLeiXing">{{TuDiShiYongQuanLeiXing}}</label>
+				</div>
+			</td>
+			<td>土地所有权人</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="TuDiSuoYouQuanRen in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiSuoYouQuanRenS track by $index"><input type="radio" ng-value="TuDiSuoYouQuanRen" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiSuoYouQuanRen">{{TuDiSuoYouQuanRen}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>图号</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuHao" placeholder="例：21212121"></td>
+			<td>土地使用管制</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="TuDiShiYongGuanZhi in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiShiYongGuanZhiS track by $index"><input type="radio" ng-value="TuDiShiYongGuanZhi" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiShiYongGuanZhi">{{TuDiShiYongGuanZhi}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>地号</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_DiHao" placeholder="例：21212121"></td>
+			<td>其他特殊情况</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_QiTaTeShuQingKuang" placeholder="无"></td>
+		</tr>
+		<tr>
+			<td>分摊土地使用权面积</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FenTanTuDiShiYongQuanMianJi" placeholder="例：123㎡"></td>
+			<td>无土地证原因</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_WuTuDiZhengYuanYin" ng-options="WuTuDiZhengYuanYin for WuTuDiZhengYuanYin in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_WuTuDiZhengYuanYinS"></select></div></td>
+		</tr>
+		<tr>
+			<td>土地用途</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="TuDiYongTu in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiYongTuS track by $index"><input type="radio" ng-value="TuDiYongTu" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_TuDiYongTu">{{TuDiYongTu}}</label>
+				</div>
+			</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	<div class="table-title" ng-click="warrantSave()">建筑物权益—共有权证</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<div class="radios-panel">
+					<label ng-repeat="GongYouQuanZhengLeiXing in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_GongYouQuanZhengLeiXingS"><input type="radio" value="{{GongYouQuanZhengLeiXing}}" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_GongYouQuanZhengLeiXing" ng-click="changeWarrant($event)">{{GongYouQuanZhengLeiXing}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="padding-3" id="warrantContent">
+				<div class="add-house-info" style="display:block;">
+					<div class="item">
+						<span class="key first">房屋{{warrantTempText}}权证号1</span><input type="text" class="input-big" placeholder="例：某某某" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FangWuSuoGongQuanZhengHao1">
+						<span class="key">{{warrantTempText}}权人1</span><input type="text" class="input-big" placeholder="例：张三" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRen1">
+						<span class="key">{{warrantTempText}}权人1所占份额</span><input type="text" class="input-big" placeholder="例：30%" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRenSuoZhanFenE1">
+					</div>
+					<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,4,'warrantContent','add-house-info')"></a>
+					<a href="javascript:;" class="icon add" ng-click="addClientFn($event,4,'warrantContent','add-house-info')"></a>
+				</div>
+
+				<div class="add-house-info" style="display:none;">
+					<div class="item">
+						<span class="key first">房屋{{warrantTempText}}权证号2</span><input type="text" class="input-big" placeholder="例：某某某" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FangWuSuoGongQuanZhengHao2">
+						<span class="key">{{warrantTempText}}权人2</span><input type="text" class="input-big" placeholder="例：张三" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRen2">
+						<span class="key">{{warrantTempText}}权人2所占份额</span><input type="text" class="input-big" placeholder="例：30%" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRenSuoZhanFenE2">
+					</div>
+					<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,4,'warrantContent','add-house-info')"></a>
+					<a href="javascript:;" class="icon add" ng-click="addClientFn($event,4,'warrantContent','add-house-info')"></a>
+				</div>
+
+				<div class="add-house-info" style="display:none;">
+					<div class="item">
+						<span class="key first">房屋{{warrantTempText}}权证号3</span><input type="text" class="input-big" placeholder="例：某某某" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FangWuSuoGongQuanZhengHao3">
+						<span class="key">{{warrantTempText}}权人3</span><input type="text" class="input-big" placeholder="例：张三" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRen3">
+						<span class="key">{{warrantTempText}}权人3所占份额</span><input type="text" class="input-big" placeholder="例：30%" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRenSuoZhanFenE3">
+					</div>
+					<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,4,'warrantContent','add-house-info')"></a>
+					<a href="javascript:;" class="icon add" ng-click="addClientFn($event,4,'warrantContent','add-house-info')"></a>
+				</div>
+
+				<div class="add-house-info" style="display:none;">
+					<div class="item">
+						<span class="key first">房屋{{warrantTempText}}权证号4</span><input type="text" class="input-big" placeholder="例：某某某" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FangWuSuoGongQuanZhengHao4">
+						<span class="key">{{warrantTempText}}权人4</span><input type="text" class="input-big" placeholder="例：张三" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRen4">
+						<span class="key">{{warrantTempText}}权人4所占份额</span><input type="text" class="input-big" placeholder="例：30%" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRenSuoZhanFenE4">
+					</div>
+					<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,4,'warrantContent','add-house-info')"></a>
+					<a href="javascript:;" class="icon add" ng-click="addClientFn($event,4,'warrantContent','add-house-info')"></a>
+				</div>
+
+				<div class="add-house-info" style="display:none;">
+					<div class="item">
+						<span class="key first">房屋{{warrantTempText}}权证号5</span><input type="text" class="input-big" placeholder="例：某某某" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FangWuSuoGongQuanZhengHao5">
+						<span class="key">{{warrantTempText}}权人5</span><input type="text" class="input-big" placeholder="例：张三" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRen5">
+						<span class="key">{{warrantTempText}}权人5所占份额</span><input type="text" class="input-big" placeholder="例：30%" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_SuoGongQuanRenSuoZhanFenE5">
+					</div>
+					<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,4,'warrantContent','add-house-info')"></a>
+					<a href="javascript:;" class="icon add" ng-click="addClientFn($event,4,'warrantContent','add-house-info')"></a>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="table-title">其他权益</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 138px;">是否存在抵押权</td>
+			<td style="width: 310px;" class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="ShiFuCunZaiDiYaQuan in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_ShiFuCunZaiDiYaQuanS track by $index"><input type="radio" ng-value="ShiFuCunZaiDiYaQuan" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_ShiFuCunZaiDiYaQuan">{{ShiFuCunZaiDiYaQuan}}</label>
+				</div>
+			</td>
+			<td style="width: 138px;">抵押权人</td>
+			<td style="width: 310px;" class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_DiYaQuanRen" placeholder="无"></td>
+		</tr>
+		<tr>
+			<td>权利价值（万元）</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_QuanLiJiaZhi" placeholder="无"></td>
+			<td>抵押设定日期</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_DiYaSheDingRiQi" placeholder="无"></td>
+		</tr>
+	</table>
+	<div class="table-title">其他信息</div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 160px;">法定最高使用年限的土地用途</td>
+			<td class="padding-3 border-bottom" colspan="3">
+				<div class="radios-panel">
+					<label ng-repeat="FaDingZuiGaoShiYongNianXianDeTuDiYongTu in QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FaDingZuiGaoShiYongNianXianDeTuDiYongTuS track by $index"><input type="radio" ng-value="FaDingZuiGaoShiYongNianXianDeTuDiYongTu" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FaDingZuiGaoShiYongNianXianDeTuDiYongTu">{{FaDingZuiGaoShiYongNianXianDeTuDiYongTu}}</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>剩余土地年限</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_ShengYuTuDiNianXian" placeholder="无"></td>
+			<td>法定最高土地使用年限</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_FaDingZuiGaoTuDiShiYongNianXian" placeholder="无"></td>
+		</tr>
+		<tr>
+			<td>容积率</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_RongJiLv" placeholder="无"></td>
+			<td>建筑物剩余经济寿命</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="QuanYiZhuangKuangData.n0_QuanYiZhuangKuang_JianZhuWuShengYuJingJiShouMing" placeholder="无"></td>
+		</tr>
+	</table>
+</div>
+
+<report-next create-report="createReport()" next-step="nextStep()" prev-step="prevStep()" finish-report="finishReport()" is-show-prev="isShowPrev" is-show-next="isShowNext" is-finish-report="isFinishReport" is-hide-fixcontent="isHideFixcontent" is-show-income="isShowIncome" income-result="n0_ShouYiFa_FangDiChanJiaZhiCeSuanJieGuo" is-show-method="isShowMethod" is-show-costing="isShowCosting" costing-result="n0_ChengBenFa_FangDiChanDanJia"></report-next>

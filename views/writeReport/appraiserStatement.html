@@ -1,0 +1,104 @@
+<step-nav></step-nav>
+<div class="appraiser-content padding-l-r-20">
+	<div class="tab-content">
+		<ul class="tab-hd clear" id="appraiserTabHd">
+			<li><a href="javascript:;">估价师声明</a></li>
+			<li><a href="javascript:;">估价假设和限制条件</a></li>
+		</ul>
+		<div class="tab-bd clear" id="appraiserTabBd">
+			<div class="panel">
+				<div class="text-area-panel">
+					<div class="area-title">估价师声明</div>
+					<div class="area-content">
+						<textarea id="gjsStatement" ng-blur="saveGjsData('gjsStatement')"></textarea>
+					</div>
+				</div>
+				<div class="height10"></div>
+			</div>
+			<div class="panel" id="gjsLimiting">
+				<div class="text-area-panel">
+					<div class="area-title">{{gjsDataTitle[0]}}<span class="link-red" ng-show="gjsDataNum_1">（注：第{{gjsDataNum_1}}项有复选项）</span><a href="javascript:;" class="btn btn-default fr" ng-click="checkFilterItems(0)" ng-show="gjsDataNum_1">查看筛选项</a></div>
+					<div class="area-content">
+						<textarea class="gjsLimiting" id="gjsLimiting_1" ng-blur="saveGjsData('gjsLimiting_1')"></textarea>
+					</div>
+				</div>
+				<div class="height10"></div>
+				<div class="text-area-panel">
+					<div class="area-title">{{gjsDataTitle[1]}}<span class="link-red" ng-show="gjsDataNum_2">（注：第{{gjsDataNum_2}}项有复选项）</span><a href="javascript:;" class="btn btn-default fr" ng-click="checkFilterItems(1)" ng-show="gjsDataNum_2">查看筛选项</a></div>
+					<div class="area-content">
+						<textarea class="gjsLimiting" id="gjsLimiting_2" ng-blur="saveGjsData('gjsLimiting_2')"></textarea>
+					</div>
+				</div>
+				<div class="height10"></div>
+				<div class="text-area-panel">
+					<div class="area-title">{{gjsDataTitle[2]}}<span class="link-red" ng-show="gjsDataNum_3">（注：第{{gjsDataNum_3}}项有复选项）</span><a href="javascript:;" class="btn btn-default fr" ng-click="checkFilterItems(2)" ng-show="gjsDataNum_3">查看筛选项</a></div>
+					<div class="area-content">
+						<textarea class="gjsLimiting" id="gjsLimiting_3" ng-blur="saveGjsData('gjsLimiting_3')"></textarea>
+					</div>
+				</div>
+				<div class="height10"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- 估价师声明弹窗 -->
+<div class="appraiser-pop pop-content" id="appraiserPop">
+	<div class="pop-title">
+		<h2 class="title">复选内容</h2>
+		<a href="javascript:;" class="close-pop icon pa"></a>
+	</div>
+	<div class="pop-bd">
+		<div class="appraiser-con">
+			<table class="table table-bordered text-center table-nomargin" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td style="width:15px;" rowspan="2">2</td>
+						<td class="text-left" id="fe_text_1">假定任何有关估价对象的运作方式、程序符合国家、地方的有关法律、法规。在价值时点时，估价对象权属合法、清晰，无争议， 并能够正常上市交易。</td>
+						<td style="width:25px;"><a href="javascript:;" class="copy-btn link-blue" id="clip_button_1" data-clipboard-target="fe_text_1">复制</a></td>
+					</tr>
+				</tbody>
+			</table>
+            <div class="height10"></div>
+            <table class="table table-bordered text-center table-nomargin" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td style="width:15px;" rowspan="4">5</td>
+						<td class="text-left" id="fe_text_3">假定任何有关估价对象的运作方式、程序符合国家、地方的有关法律、法规。在价值时点时，估价对象权属合法、清晰，无争议， 并能够正常上市交易。</td>
+						<td style="width:25px;"><a href="javascript:;" class="copy-btn link-blue" id="clip_button_3" data-clipboard-target="fe_text_3">复制</a></td>
+					</tr>
+					<tr>
+					    <td class="text-left" id="fe_text_4">假定任何有关估价对象的运作方式、程序符合国家、地方的有关法律、法规。在价值时点时，估价对象权属合法、清晰。</td>
+						<td><a href="javascript:;" class="copy-btn link-blue" id="clip_button_4" data-clipboard-target="fe_text_4">复制</a></td>
+					</tr>
+                    <tr>
+						<td class="text-left" id="fe_text_5">假定任何有关估价对象的运作方式、程序符合国家、地方的有关法律、法规。在价值时点时，估价对象权属合法、清晰，无争议， 并能够正常上市交易。</td>
+						<td><a href="javascript:;" class="copy-btn link-blue" id="clip_button_5" data-clipboard-target="fe_text_5">复制</a></td>
+					</tr>
+					<tr>
+					    <td class="text-left" id="fe_text_6">假定任何有关估价对象的运作方式、程序符合国家、地方的有关法律、法规。在价值时点时，估价对象权属合法、清晰。</td>
+						<td><a href="javascript:;" class="copy-btn link-blue" id="clip_button_6" data-clipboard-target="fe_text_6">复制</a></td>
+					</tr>
+				</tbody>
+			</table>
+            <div class="height10"></div>
+            <table class="table table-bordered text-center table-nomargin" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td style="width:15px;" rowspan="2">9</td>
+						<td class="text-left" id="fe_text_7">假定任何有关估价对象的运作方式、程序符合国家、地方的有关法律、法规。在价值时点时，估价对象权属合法、清晰，无争议， 并能够正常上市交易。</td>
+						<td style="width:25px;"><a href="javascript:;" class="copy-btn link-blue" id="clip_button_7" data-clipboard-target="fe_text_7">复制</a></td>
+					</tr>
+					<tr>
+						<td class="text-left" id="fe_text_8">假定任何有关估价对象的运作方式、程序符合国家、地方的有关法律、法规。在价值时点时，估价对象权属合法、清晰。</td>
+						<td><a href="javascript:;" class="copy-btn link-blue" id="clip_button_8" data-clipboard-target="fe_text_8">复制</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<report-next create-report="createReport()" next-step="nextStep()" prev-step="prevStep()" finish-report="finishReport()" is-show-prev="isShowPrev" is-show-next="isShowNext" is-finish-report="isFinishReport" is-hide-fixcontent="isHideFixcontent" is-show-income="isShowIncome" income-result="n0_ShouYiFa_FangDiChanJiaZhiCeSuanJieGuo" is-show-method="isShowMethod" is-show-costing="isShowCosting" costing-result="costingResult"></report-next>

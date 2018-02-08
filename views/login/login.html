@@ -1,0 +1,27 @@
+<div class="login-wrap">
+	<div class="login-content">
+		<b class="icon ico"></b>
+		<div class="login-hd">登录</div>
+		<ul class="list" id="loginForm">
+			<li class="item">
+				<input type="text" class="input" placeholder="请输入您的用户名" ng-keydown="enterKey($event)" ng-blur="checUsername()" ng-change="checUsername()" ng-model="userLoginData.userName">
+				<p class="tip-msg" ng-if="userLoginData.uDirty"><b class="icon error"></b>{{userLoginData.utipMsg}}</p>
+			</li>
+			<li class="item">
+				<input type="password" class="input" placeholder="请输入您的密码" ng-keydown="enterKey($event)" ng-blur="checkPassword()" ng-change="checkPassword()" ng-model="userLoginData.password">
+				<p class="tip-msg" ng-if="userLoginData.pDirty"><b class="icon error"></b>{{userLoginData.ptipMsg}}</p>
+			</li>
+			<li class="item">
+				<label><input checked="" type="checkbox">
+				记住用户名</label>
+			</li>
+			<li class="item login-btn">
+				<a ng-click="checkFormData()" class="btn btn-block btn-lg btn-red">立即登录</a>
+			</li>
+		</ul>
+		<div class="login-ft">
+			<span class="text">还没有评e评账号？</span><a href="javascript:;" class="link fr link-red">立即注册</a>
+		</div>
+	</div>
+</div>
+<div class="full-bg"></div>

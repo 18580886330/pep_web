@@ -1,0 +1,168 @@
+<step-nav></step-nav>
+<div class="calculate-table">
+	<div id="computedResult" class="calculate-content padding-l-r-20">
+
+	<div class="table-title">市场价格确定</div>
+	<table class="table table-noborder table-background" width="100%" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+	    <td rowspan="7" style="width:162px;">市场法价格结果确定</td>
+	    <td style="width:205px;">方法</td>
+	    <td class="padding-3" style="width:260px;">
+	    <div class="select-pull">
+	    	<select class="down-menu" ng-model="ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_FangFa1" ng-options="FangFa for FangFa in ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_FangFa1S"></select>
+	    </div>
+		</td>
+	    <td class="padding-3" style="width:260px;"><div class="select-pull">
+	    	<select class="down-menu" ng-model="ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_FangFa2" ng-options="FangFa for FangFa in ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_FangFa2S"></select>
+	    </div></td>
+	  </tr>
+	  <tr>
+	    <td>测算结果</td>
+	    <td class="padding-3"><div class="result-number">{{ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_CeSuanJieGuo1}}</div></td>
+	    <td class="padding-3"><div class="result-number">{{ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_CeSuanJieGuo2}}</div></td>
+	  </tr>
+	  <tr>
+	    <td>差额比例</td>
+	    <td class="padding-3" colspan="2"><div class="result-number">{{ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_ChaEBiLi}}</div></td>
+	    </tr>
+	  <tr>
+	    <td>权重</td>
+	    <td class="padding-3"><div class="select-pull">
+	    	<select class="down-menu" ng-model="ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_QuanZhong1" ng-options="QuanZhong for QuanZhong in ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_QuanZhong1S">
+	    		  </select>
+	    </div></td>
+	    <td class="padding-3"><div class="result-number">{{ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_QuanZhong2}}</div></td>
+	  </tr>
+	  <tr>
+	    <td>权重后单价</td>
+	    <td class="padding-3" colspan="2"><div class="result-number">{{ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_QuanZhongHouDanJia}}</div></td>
+	    </tr>
+	  <tr>
+	    <td>建筑面积</td>
+	    <td class="padding-3" colspan="2"><div class="result-number">{{ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_JianZhuMianJi}}</div></td>
+	    </tr>
+	  <tr>
+	    <td>市场价值</td>
+	    <td class="pv padding-3" colspan="2"><div class="result-number"><strong class="link-red">{{ShiChangJiaGeQueDingData.n0_ShiChangJiaGeQueDing_ShiChangJiaZhi }}</strong><span class="pa unit">万元</span></div></td>
+	    </tr>
+	</table>
+
+	<div class="table-title">抵押价格确定</div>
+	  <table class="table table-noborder table-background" width="100%" border="0" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td class="border-bottom" style="width:162px;" rowspan="4">出让金价格结果确定</td>
+	      <td style="width:205px;">市场价值是否扣除出让金</td>
+	      <td class="padding-3" colspan="2"><div class="select-pull">
+	        <select name="select" class="down-menu" ng-model="DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_ShiChangJiaZhiShiFuKouChuChuRangJin" ng-options="ShiChangJiaZhiShiFuKouChuChuRangJin for ShiChangJiaZhiShiFuKouChuChuRangJin in DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_ShiChangJiaZhiShiFuKouChuChuRangJinS">
+	          </select>
+	      </div></td>
+	    </tr>
+	    <tr>
+	      <td>尚未补交的出让金金额</td>
+	      <td class="pv padding-3" colspan="2"><input class="input" type="text" ng-model="DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_ShangWeiBuJiaoDeChuRangJinJinE" />
+	        <span class="pa unit">万元</span></td>
+	    </tr>
+	    <tr>
+	      <td>出让金扣除后的总价</td>
+	      <td class="pv padding-3" colspan="2"><div class="result-number">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_ChuRangJinKouChuHouDeZongJia}}<span class="pa unit">万元</span></div></td>
+	    </tr>
+	    <tr>
+	      <td>出让金扣除后的单价</td>
+	      <td class="pv padding-3" colspan="2"><div class="result-number">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_ChuRangJinKouChuHouDeDanJia}}<span class="pa unit">元</span></div></td>
+	    </tr>
+	    <tr>
+	      <td class="border-bottom" rowspan="3">优先受偿款</td>
+	      <td>已抵押担保的债权数额</td>
+	      <td class="pv padding-3" colspan="2"><div class="result-number">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_YiDiYaDanBaoDeZhaiQuanShuE}}<span class="pa unit">万元</span></div></td>
+	    </tr>
+	    <tr>
+	      <td>拖欠建设工程价款</td>
+	      <td class="pv padding-3" colspan="2"><input class="input" type="text" ng-model="DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_TuoQianDeJianSheGongChengJiaKuan" />
+	        <span class="pa unit">万元</span></td>
+	    </tr>
+	    <tr>
+	      <td class="border-bottom">其他法定优先受偿款</td>
+	      <td class="padding-3 border-bottom" colspan="2"><input class="input" type="text" ng-model="DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_QiTaFaDingYouXianShouChangKuan"></td>
+	    </tr>
+	    <tr>
+	      <td class="padding-null" colspan="4">
+	      <table class="table table-noborder table-background" width="100%" border="0" cellspacing="0" cellpadding="0">
+	        <tr>
+	          <td class="border-bottom" rowspan="2" style="width:162px;">抵押价格结果确定</td>
+	          <td class="padding-3" colspan="2"><div class="result-number">总价（万元）</div></td>
+	          <td class="padding-3 not-border-right" colspan="3"><div class="result-number">单价（元）</div></td>
+	          </tr>
+	        <tr>
+	        <td class="padding-3 border-bottom" colspan="2"><div class="result-number"><strong class="link-red">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_DiYaZongJia}}</strong></div></td>
+	          <td class="padding-3 border-bottom not-border-right" colspan="3"><div class="result-number"><strong class="link-red">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_DiYaDanJia}}</strong></div></td>
+	          </tr>
+	        <tr>
+	        <td rowspan="5">税后价格结果确定</td>
+	          <td>土地价值</td>
+	          <td class="padding-3" colspan="2" style="width:160px;">
+	          <div class="select-pull">
+		          <select name="select" class="down-menu" ng-model="DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_TuDiJiaZhiBaiFenBi" ng-options="TuDiJiaZhiBaiFenBi for TuDiJiaZhiBaiFenBi in DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_TuDiJiaZhiBaiFenBiS">
+	          </select>
+		      </div>
+	          </td>
+	          <td class="padding-3 not-border-right" colspan="2" style="width:160px;"><div class="result-number">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_TuDiJiaZhi}}</div></td>
+	          </tr>
+	        <tr>
+	        <td>建筑物价值</td>
+	          <td class="padding-3" colspan="2"><div class="result-number">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_JianZhuWuJiaZhiBaiFenBi}}</div></td>
+	          <td class="padding-3 not-border-right" colspan="2"><div class="result-number">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_JianZhuWuJiaZhi}}</div></td>
+	          </tr>
+	        <tr>
+	        <td class="border-bottom">是否测算净值</td>
+	          <td class="padding-3 border-bottom" colspan="2"><div class="select-pull">
+	        <select name="select" class="down-menu" ng-model="DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_ShiFuCeSuanJingZhi" ng-options="ShiFuCeSuanJingZhi for ShiFuCeSuanJingZhi in DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_ShiFuCeSuanJingZhiS">
+	          </select>
+	      </div></td>
+	          <td class="padding-3 border-bottom not-border-right" colspan="2"><input class="input" type="text" ng-model="DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_CeSuanJingZhi"></td>
+	          </tr>
+	        <tr>
+	        <td class="padding-3" colspan="2"><div class="result-number">扣除税费后总价（万元）</div></td>
+	          <td class="padding-3 not-border-right" colspan="3"><div class="result-number">扣除税费后单价（元）</div></td>
+	          </tr>
+	        <tr>
+	        <td class="padding-3" colspan="2"><div class="result-number"><strong class="link-red">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_KouChuShuiFeiHouDeZongJia}}</strong></div></td>
+	          <td class="padding-3 not-border-right" colspan="3"><div class="result-number"><strong class="link-red">{{DiYaJiaGeQueDingData.n0_DiYaJiaGeQueDing_KouChuShuiFeiHouDeDanJia}}</strong></div></td>
+	          </tr>
+	      </table>
+	      </td>
+	    </tr>
+	  </table>
+	<div class="table-title">方法理由</div>
+	<div class="reason-list reason-3 clear">
+		<div class="item">
+			<div class="reason-hd">市场法（使用理由）</div>
+			<div class="reason-bd"><textarea class="tarea" ng-bind="FangFaLiYouData.n0_FangFaLiYou_BiJiaoFaFangFaLiYou1"></textarea></div>
+		</div>
+		<div class="item">
+			<div class="reason-hd">收益法（未使用理由）</div>
+			<div class="reason-bd"><textarea class="tarea" ng-bind="FangFaLiYouData.n0_FangFaLiYou_ShouYiFaFangFaLiYou2"></textarea></div>
+		</div>
+		<div class="item">
+			<div class="reason-hd">成本法（未使用理由）</div>
+			<div class="reason-bd"><textarea class="tarea" ng-bind="FangFaLiYouData.n0_FangFaLiYou_ChengBenFaFangFaLiYou3"></textarea></div>
+		</div>
+	</div>
+
+	<div class="table-title">附加理由</div>
+	<div class="reason-list reason-2 clear">
+		<div class="item">
+			<div class="reason-hd">权重确定理由</div>
+			<div class="reason-bd"><textarea class="tarea" ng-bind="FangFaLiYouData.n0_FangFaLiYou_QuanZhongQueDingLiYou"></textarea></div>
+		</div>
+		<div class="item">
+			<div class="reason-hd">出让金是否扣除的理由</div>
+			<div class="reason-bd"><textarea class="tarea" ng-bind="FangFaLiYouData.n0_FangFaLiYou_ChuRangJinShiFuKouChuDeLiYou"></textarea></div>
+		</div>
+	</div>
+
+</div>
+
+</div>
+
+
+<report-next create-report="createReport()" next-step="nextStep()" prev-step="prevStep()" finish-report="finishReport()" is-show-prev="isShowPrev" is-show-next="isShowNext" is-finish-report="isFinishReport" is-hide-fixcontent="isHideFixcontent"></report-next>

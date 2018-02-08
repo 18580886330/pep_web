@@ -1,0 +1,859 @@
+<step-nav></step-nav>
+<div class="calculate-table padding-l-r-20">
+	<div class="tab-content">
+		<!-- calculateTabHd -->
+		<ul class="tab-hd clear">
+			<li class="active"><a ui-sref="writeReport.marketApproach">市场法</a></li>
+			<li><a ui-sref="writeReport.costApproach">成本法</a></li>
+			<li><a ui-sref="writeReport.incomeApproach">收益法</a></li>
+		</ul>
+		<div class="tab-bd clear">
+			<div class="panel">
+				<!-- calculate-content start -->
+				<div class="calculate-content">
+					<div class="calculate-hd clear">
+						<a href="javascript:;" class="btn btn-red" ng-click="contrastCase()">对比案例</a>
+					</div>
+					<div class="calculate-title clear">
+						<ul class="list">
+							<li class="item">比较因素(住宅)</li>
+							<li class="item on">估价对象</li>
+							<li class="item on">可比实例1<a href="javascript:;" class="btn btn-default btn-sm addcase" ng-click="importCase('KeBiShiLi1Data',$event)">切换</a></li>
+							<li class="item on">可比实例2<a href="javascript:;" class="btn btn-default btn-sm addcase" ng-click="importCase('KeBiShiLi2Data',$event)">切换</a></li>
+							<li class="item on">可比实例3<a href="javascript:;" class="btn btn-default btn-sm addcase" ng-click="importCase('KeBiShiLi3Data',$event)">切换</a></li>
+						</ul>
+					</div>
+					<div class="calculate-bd" id="calculateContent">
+						<table class="table table-noborder table-background" width="100%" border="0" cellspacing="0" cellpadding="0">
+						  <tr>
+						    <td style="width:130px;">项目名称/位置</td>
+						    <td class="padding-3">
+						    	<textarea id="gjdx" class="area-line-2 gjobj" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_XiangMuMingChen"></textarea>
+						    </td>
+						    <td class="padding-3 pv">
+						    	<textarea disabled="" class="area-line-2 gjobj" data-tid="{{KeBiShiLi1Data.n0_KeBiShiLi1_TID}}" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_XiangMuMingChen"></textarea>
+						    </td>
+						    <td class="padding-3 pv">
+						    	<textarea disabled="" class="area-line-2 gjobj" data-tid="{{KeBiShiLi2Data.n0_KeBiShiLi2_TID}}" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_XiangMuMingChen"></textarea>
+						    </td>
+						    <td class="padding-3 pv">
+						    	<textarea disabled="" class="area-line-2 gjobj" data-tid="{{KeBiShiLi3Data.n0_KeBiShiLi3_TID}}" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_XiangMuMingChen"></textarea>
+						    </td>
+						  </tr>
+						  <tr>
+						  	<td>&nbsp;</td>
+						  	<td>&nbsp;</td>
+						  	<td class="padding-3 text-center">
+						  		<a href="javascript:;" class="btn btn-green" ng-click="getResidentialArea('KeBiShiLi1')">查看实例位置</a>
+						  		<b class="icon change-data" ng-click="kbslChangeData('1','2')"></b>
+						  	</td>
+						  	<td class="padding-3 text-center">
+						  		<b class="icon change-data l" ng-click="kbslChangeData('2','1')"></b>
+						  		<a href="javascript:;" class="btn btn-green" ng-click="getResidentialArea('KeBiShiLi2')">查看实例位置</a>
+						  		<b class="icon change-data" ng-click="kbslChangeData('2','3')"></b>
+						  	</td>
+						  	<td class="padding-3 text-center">
+						  		<b class="icon change-data l" ng-click="kbslChangeData('3','2')"></b>
+						  		<a href="javascript:;" class="btn btn-green" ng-click="getResidentialArea('KeBiShiLi3')">查看实例位置</a>
+						  	</td>
+						  </tr>
+						  <tr>
+						    <td>总价（万元）</td>
+						    <td class="padding-3">
+						    	<div class="input bg-blue">{{GuJiaDuiXiangData.n0_GuJiaDuiXiang_ZongJia||'待估'}}</div>
+						    </td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_ZongJia">
+						    </td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_ZongJia">
+						    </td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_ZongJia">
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>单价（元/㎡）</td>
+						    <td class="padding-3">
+						    	<div class="input bg-blue">{{GuJiaDuiXiangData.n0_GuJiaDuiXiang_DanJia||'待估'}}</div>
+						    </td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" disabled="" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_DanJia">
+						    </td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" disabled="" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_DanJia">
+						    </td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" disabled="" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_DanJia">
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>交易日期</td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" disabled="" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JiaoYiRiQi">
+						    	<input type="hidden" class="input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JiaoYiRiQiv">
+						    </td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" disabled="" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_JiaoYiRiQi">
+						    	<input type="hidden" class="input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_JiaoYiRiQiv">
+						    </td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" disabled="" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_JiaoYiRiQi">
+						    	<input type="hidden" class="input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_JiaoYiRiQiv">
+						    </td>
+						    <td class="padding-3">
+						    	<input type="text" class="input" disabled="" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_JiaoYiRiQi">
+						    	<input type="hidden" class="input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_JiaoYiRiQiv">
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>市场状况</td>
+						    <td class="padding-3">
+						    	<div class="menu-number">
+						    		<select class="down-menu" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_ShiChangZhuangKuang" ng-options="ShiChangZhuangKuang for ShiChangZhuangKuang in GuJiaDuiXiangData.n0_GuJiaDuiXiang_ShiChangZhuangKuangS">
+						    		</select>
+							        <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_ShiChangZhuangKuangv"></span>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_ShiChangZhuangKuang" ng-options="ShiChangZhuangKuang for ShiChangZhuangKuang in KeBiShiLi1Data.n0_KeBiShiLi1_ShiChangZhuangKuangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_ShiChangZhuangKuangv" name="n0_KeBiShiLi1_ShiChangZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_ShiChangZhuangKuang" ng-options="ShiChangZhuangKuang for ShiChangZhuangKuang in KeBiShiLi2Data.n0_KeBiShiLi2_ShiChangZhuangKuangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_ShiChangZhuangKuangv" name="n0_KeBiShiLi2_ShiChangZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_ShiChangZhuangKuang" ng-options="ShiChangZhuangKuang for ShiChangZhuangKuang in KeBiShiLi3Data.n0_KeBiShiLi3_ShiChangZhuangKuangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_ShiChangZhuangKuangv" name="n0_KeBiShiLi3_ShiChangZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						    </tr>
+						  <tr>
+						    <td>交易情况</td>
+						    <td class="padding-3">
+						    	<div class="menu-number">
+							      <select class="down-menu" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JiaoYiZhuangKuang" ng-options="JiaoYiZhuangKuang for JiaoYiZhuangKuang in GuJiaDuiXiangData.n0_GuJiaDuiXiang_JiaoYiZhuangKuangS">
+						    		</select>
+							        <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JiaoYiZhuangKuangv"></span>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_JiaoYiZhuangKuang" ng-options="JiaoYiZhuangKuang for JiaoYiZhuangKuang in KeBiShiLi1Data.n0_KeBiShiLi1_JiaoYiZhuangKuangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_JiaoYiZhuangKuangv" name="n0_KeBiShiLi1_JiaoYiZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_JiaoYiZhuangKuang" ng-options="JiaoYiZhuangKuang for JiaoYiZhuangKuang in KeBiShiLi2Data.n0_KeBiShiLi2_JiaoYiZhuangKuangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_JiaoYiZhuangKuangv" name="n0_KeBiShiLi2_JiaoYiZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_JiaoYiZhuangKuang" ng-options="JiaoYiZhuangKuang for JiaoYiZhuangKuang in KeBiShiLi3Data.n0_KeBiShiLi3_JiaoYiZhuangKuangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_JiaoYiZhuangKuangv" name="n0_KeBiShiLi3_JiaoYiZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						</table>
+
+						<div class="table-title">区位状况</div>
+						<table class="table table-noborder table-background" width="100%" border="0" cellspacing="0" cellpadding="0">
+						  <tr>
+						    <td style="width:127px;">朝向</td>
+						    <td class="padding-3" style="width:192px;">
+						    	<input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_ChaoXiang">
+						        <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_ChaoXiangv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_ChaoXiang" ng-options="ChaoXiang for ChaoXiang in KeBiShiLi1Data.n0_KeBiShiLi1_ChaoXiangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_ChaoXiangv" name="n0_KeBiShiLi1_ChaoXiangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_ChaoXiang" ng-options="ChaoXiang for ChaoXiang in KeBiShiLi2Data.n0_KeBiShiLi2_ChaoXiangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_ChaoXiangv" name="n0_KeBiShiLi2_ChaoXiangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_ChaoXiang" ng-options="ChaoXiang for ChaoXiang in KeBiShiLi3Data.n0_KeBiShiLi3_ChaoXiangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_ChaoXiangv" name="n0_KeBiShiLi3_ChaoXiangv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>交通状况</td>
+						    <td class="padding-3">
+						    	<div class="menu-number">
+						    		<textarea class="tarea area-line-3" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JiaoTongZhuangKuang"></textarea>
+						    		<span class="disabled-number number-line-3" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JiaoTongZhuangKuangv"></span>
+						    	</div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<textarea class="tarea area-line-3" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_JiaoTongZhuangKuang"></textarea>
+						    		<number-panel class="number-line-3" v="KeBiShiLi1Data.n0_KeBiShiLi1_JiaoTongZhuangKuangv" name="n0_KeBiShiLi1_JiaoTongZhuangKuangv"></number-panel>
+						    	</div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<textarea class="tarea area-line-3" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_JiaoTongZhuangKuang"></textarea>
+						    		<number-panel class="number-line-3" v="KeBiShiLi2Data.n0_KeBiShiLi2_JiaoTongZhuangKuangv" name="n0_KeBiShiLi2_JiaoTongZhuangKuangv"></number-panel>
+						    	</div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<textarea class="tarea area-line-3" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_JiaoTongZhuangKuang"></textarea>
+						    		<number-panel class="number-line-3" v="KeBiShiLi3Data.n0_KeBiShiLi3_JiaoTongZhuangKuangv" name="n0_KeBiShiLi3_JiaoTongZhuangKuangv"></number-panel>
+						    	</div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>环境状况</td>
+						    <td class="padding-3">
+						    	<div class="menu-number">
+						    		<textarea class="tarea area-line-2" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_HuanJingZhuangKuang"></textarea>
+						    		<span class="disabled-number number-line-2" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_HuanJingZhuangKuangv"></span>
+						    	</div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<textarea class="tarea area-line-2" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_HuanJingZhuangKuang"></textarea>
+						    		<number-panel class="number-line-2" v="KeBiShiLi1Data.n0_KeBiShiLi1_HuanJingZhuangKuangv" name="n0_KeBiShiLi1_HuanJingZhuangKuangv"></number-panel>
+						    	</div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<textarea class="tarea area-line-2" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_HuanJingZhuangKuang"></textarea>
+						    		<number-panel class="number-line-2" v="KeBiShiLi2Data.n0_KeBiShiLi2_HuanJingZhuangKuangv" name="n0_KeBiShiLi2_HuanJingZhuangKuangv"></number-panel>
+						    	</div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<textarea class="tarea area-line-2" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_HuanJingZhuangKuang"></textarea>
+						    		<number-panel class="number-line-2" v="KeBiShiLi3Data.n0_KeBiShiLi3_HuanJingZhuangKuangv" name="n0_KeBiShiLi3_HuanJingZhuangKuangv"></number-panel>
+						    	</div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>基础设施配套</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JiChuSheShiPeiTao">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JiChuSheShiPeiTaov"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_JiChuSheShiPeiTao">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_JiChuSheShiPeiTaov" name="n0_KeBiShiLi1_JiChuSheShiPeiTaov"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_JiChuSheShiPeiTao">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_JiChuSheShiPeiTaov" name="n0_KeBiShiLi2_JiChuSheShiPeiTaov"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_JiChuSheShiPeiTao">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_JiChuSheShiPeiTaov" name="n0_KeBiShiLi3_JiChuSheShiPeiTaov"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>公共服务设施</td>
+						    <td class="padding-3">
+						    	<div class="menu-number">
+						    		<textarea class="tarea area-line-8" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_GongGongFuWuSheShi"></textarea>
+						    		<span class="disabled-number number-line-8" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_GongGongFuWuSheShiv"></span>
+						    	</div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<textarea class="tarea area-line-8" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_GongGongFuWuSheShi"></textarea>
+						    		<number-panel class="number-line-8" v="KeBiShiLi1Data.n0_KeBiShiLi1_GongGongFuWuSheShiv" name="n0_KeBiShiLi1_GongGongFuWuSheShiv"></number-panel>
+						    	</div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<textarea class="tarea area-line-8" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_GongGongFuWuSheShi"></textarea>
+						    		<number-panel class="number-line-8" v="KeBiShiLi2Data.n0_KeBiShiLi2_GongGongFuWuSheShiv" name="n0_KeBiShiLi2_GongGongFuWuSheShiv"></number-panel>
+						    	</div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<textarea class="tarea area-line-8" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_GongGongFuWuSheShi"></textarea>
+						    		<number-panel class="number-line-8" v="KeBiShiLi3Data.n0_KeBiShiLi3_GongGongFuWuSheShiv" name="n0_KeBiShiLi3_GongGongFuWuSheShiv"></number-panel>
+						    	</div>
+						    </td>
+						  </tr>
+						</table>
+
+
+						<div class="table-title">实物状况</div>
+						<table class="table table-noborder table-background" width="100%" border="0" cellspacing="0" cellpadding="0">
+						  <tr>
+						    <td style="width:127px;">建筑面积(㎡）</td>
+						    <td class="padding-3">
+						      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JianZhuMianJi">
+						      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JianZhuMianJiv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_JianZhuMianJi">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_JianZhuMianJiv" name="n0_KeBiShiLi1_JianZhuMianJiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_JianZhuMianJi">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_JianZhuMianJiv" name="n0_KeBiShiLi2_JianZhuMianJiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_JianZhuMianJi">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_JianZhuMianJiv" name="n0_KeBiShiLi3_JianZhuMianJiv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>车位</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_CheWei">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_CheWeiv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_CheWei">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_CheWeiv" name="n0_KeBiShiLi1_CheWeiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_CheWei">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_CheWeiv" name="n0_KeBiShiLi2_CheWeiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_CheWei">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_CheWeiv" name="n0_KeBiShiLi3_CheWeiv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>物业管理</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_WuYeGuanLi">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_WuYeGuanLiv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_WuYeGuanLi">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_WuYeGuanLiv" name="n0_KeBiShiLi1_WuYeGuanLiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_WuYeGuanLi">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_WuYeGuanLiv" name="n0_KeBiShiLi2_WuYeGuanLiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_WuYeGuanLi">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_WuYeGuanLiv" name="n0_KeBiShiLi3_WuYeGuanLiv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>小区环境</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_XiaoQuHuanJing">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_XiaoQuHuanJingv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_XiaoQuHuanJing">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_XiaoQuHuanJingv" name="n0_KeBiShiLi1_XiaoQuHuanJingv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_XiaoQuHuanJing">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_XiaoQuHuanJingv" name="n0_KeBiShiLi2_XiaoQuHuanJingv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_XiaoQuHuanJing">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_XiaoQuHuanJingv" name="n0_KeBiShiLi3_XiaoQuHuanJingv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>建筑类别</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JianZhuLeiBie">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JianZhuLeiBiev"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_JianZhuLeiBie">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_JianZhuLeiBiev" name="n0_KeBiShiLi1_JianZhuLeiBiev"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_JianZhuLeiBie">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_JianZhuLeiBiev" name="n0_KeBiShiLi2_JianZhuLeiBiev"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_JianZhuLeiBie">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_JianZhuLeiBiev" name="n0_KeBiShiLi3_JianZhuLeiBiev"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>建筑结构</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JianZhuJieGou">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JianZhuJieGouv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_JianZhuJieGou">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_JianZhuJieGouv" name="n0_KeBiShiLi1_JianZhuJieGouv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_JianZhuJieGou">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_JianZhuJieGouv" name="n0_KeBiShiLi2_JianZhuJieGouv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_JianZhuJieGou">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_JianZhuJieGouv" name="n0_KeBiShiLi3_JianZhuJieGouv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>建成年代</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JianChengNianDai">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_JianChengNianDaiv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_JianChengNianDai">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_JianChengNianDaiv" name="n0_KeBiShiLi1_JianChengNianDaiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_JianChengNianDai">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_JianChengNianDaiv" name="n0_KeBiShiLi2_JianChengNianDaiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_JianChengNianDai">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_JianChengNianDaiv" name="n0_KeBiShiLi3_JianChengNianDaiv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>设施设备</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_SheShiSheBei">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_SheShiSheBeiv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_SheShiSheBei">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_SheShiSheBeiv" name="n0_KeBiShiLi1_SheShiSheBeiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_SheShiSheBei">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_SheShiSheBeiv" name="n0_KeBiShiLi2_SheShiSheBeiv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_SheShiSheBei">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_SheShiSheBeiv" name="n0_KeBiShiLi3_SheShiSheBeiv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>户型</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_HuXing">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_HuXingv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_HuXing" ng-options="HuXing for HuXing in KeBiShiLi1Data.n0_KeBiShiLi1_HuXingS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_HuXingv" name="n0_KeBiShiLi1_HuXingv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_HuXing" ng-options="HuXing for HuXing in KeBiShiLi2Data.n0_KeBiShiLi2_HuXingS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_HuXingv" name="n0_KeBiShiLi2_HuXingv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_HuXing" ng-options="HuXing for HuXing in KeBiShiLi3Data.n0_KeBiShiLi3_HuXingS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_HuXingv" name="n0_KeBiShiLi3_HuXingv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>所在层/总楼层</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_SuoZaiCengZongLouCeng">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_SuoZaiCengZongLouCengv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_SuoZaiCengZongLouCeng">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_SuoZaiCengZongLouCengv" name="n0_KeBiShiLi1_SuoZaiCengZongLouCengv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_SuoZaiCengZongLouCeng">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_SuoZaiCengZongLouCengv" name="n0_KeBiShiLi2_SuoZaiCengZongLouCengv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_SuoZaiCengZongLouCeng">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_SuoZaiCengZongLouCengv" name="n0_KeBiShiLi3_SuoZaiCengZongLouCengv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>装修状况</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_ZhuangXiuZhuangKuang">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_ZhuangXiuZhuangKuangv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_ZhuangXiuZhuangKuang" ng-options="ZhuangXiuZhuangKuang for ZhuangXiuZhuangKuang in KeBiShiLi1Data.n0_KeBiShiLi1_ZhuangXiuZhuangKuangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_ZhuangXiuZhuangKuangv" name="n0_KeBiShiLi1_ZhuangXiuZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_ZhuangXiuZhuangKuang" ng-options="ZhuangXiuZhuangKuang for ZhuangXiuZhuangKuang in KeBiShiLi2Data.n0_KeBiShiLi2_ZhuangXiuZhuangKuangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_ZhuangXiuZhuangKuangv" name="n0_KeBiShiLi2_ZhuangXiuZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+							      <select class="down-menu" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_ZhuangXiuZhuangKuang" ng-options="ZhuangXiuZhuangKuang for ZhuangXiuZhuangKuang in KeBiShiLi3Data.n0_KeBiShiLi3_ZhuangXiuZhuangKuangS">
+						    		</select>
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_ZhuangXiuZhuangKuangv" name="n0_KeBiShiLi3_ZhuangXiuZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>其他因素</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_QiTaYinSu">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_QiTaYinSuv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_QiTaYinSu">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_QiTaYinSuv" name="n0_KeBiShiLi1_QiTaYinSuv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_QiTaYinSu">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_QiTaYinSuv" name="n0_KeBiShiLi2_QiTaYinSuv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_QiTaYinSu">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_QiTaYinSuv" name="n0_KeBiShiLi3_QiTaYinSuv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						  <tr>
+						    <td>权益状况</td>
+						    <td class="padding-3">
+							      <input type="text" class="input show-input" ng-model="GuJiaDuiXiangData.n0_GuJiaDuiXiang_QuanYiZhuangKuang">
+							      <span class="disabled-number" ng-bind="GuJiaDuiXiangData.n0_GuJiaDuiXiang_QuanYiZhuangKuangv"></span>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi1Data.n0_KeBiShiLi1_QuanYiZhuangKuang">
+						    		<number-panel v="KeBiShiLi1Data.n0_KeBiShiLi1_QuanYiZhuangKuangv" name="n0_KeBiShiLi1_QuanYiZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi2Data.n0_KeBiShiLi2_QuanYiZhuangKuang">
+						    		<number-panel v="KeBiShiLi2Data.n0_KeBiShiLi2_QuanYiZhuangKuangv" name="n0_KeBiShiLi2_QuanYiZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						    <td class="padding-3">
+						    	<div class="menu-number-count">
+						    		<input type="text" class="input show-input" ng-model="KeBiShiLi3Data.n0_KeBiShiLi3_QuanYiZhuangKuang">
+						    		<number-panel v="KeBiShiLi3Data.n0_KeBiShiLi3_QuanYiZhuangKuangv" name="n0_KeBiShiLi3_QuanYiZhuangKuangv"></number-panel>
+						        </div>
+						    </td>
+						  </tr>
+						</table>
+
+						<div class="fixed-content temp">
+							<div class="container">
+								<div class="method-table fl">
+									<table class="table table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+												<td style="width:90px;">&nbsp;</td>
+												<td style="width:90px;">实例1</td>
+												<td style="width:90px;">实例2</td>
+												<td style="width:90px;">实例3</td>
+											</tr>
+											<tr>
+												<td style="width:121px;">修正系数</td>
+												<td>{{KeBiShiLi1Data.n0_KeBiShiLi1_XiuZhengXiShu}}</td>
+												<td>{{KeBiShiLi2Data.n0_KeBiShiLi2_XiuZhengXiShu}}</td>
+												<td>{{KeBiShiLi3Data.n0_KeBiShiLi3_XiuZhengXiShu}}</td>
+											</tr>
+											<tr>
+												<td>比准价值单价</td>
+												<td>{{KeBiShiLi1Data.n0_KeBiShiLi1_BiZhunJiaZhi}}</td>
+												<td>{{KeBiShiLi2Data.n0_KeBiShiLi2_BiZhunJiaZhi}}</td>
+												<td>{{KeBiShiLi3Data.n0_KeBiShiLi3_BiZhunJiaZhi}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="method-result fl">市场法评估单价<strong class="link-red">{{GuJiaDuiXiangData.n0_GuJiaDuiXiang_BiJiaoFaPingGuDanJia}}</strong>元/㎡</div>
+
+								<div class="fr">
+									<a ng-click="prevStep()" ng-if="isShowPrev" class="btn btn-blue">上一步</a>
+									<a ng-click="nextStep()" ng-if="isShowNext" class="btn btn-blue">下一步</a>
+									<a href="javascript:;" ng-click="createReport()" class="btn btn-blue">保存报告</a>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- calculate-content end -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 对比案例弹窗 -->
+<div class="contrast-pop pop-content" id="contrastPop">
+	<div class="pop-title">
+		<h2 class="title">导入案例</h2>
+		<a href="javascript:;" class="close-pop icon pa"></a>
+	</div>
+	<div class="pop-bd">
+		<div class="contrast-case">
+			<div class="screening-hd clear">
+				<div class="screening-panel clear">
+					<div class="screening-list clear">
+						<span class="key">项目名称：</span>
+						<div class="select">
+							<select id="projectName" ng-change="bindReqParams('ImportCaseData.n0_ImportCase_projectName')" ng-model="ImportCaseData.n0_ImportCase_projectName" ng-options="projectName for projectName in ImportCaseData.n0_ImportCase_projectNameS"></select>
+						</div>
+						<div class="screening-right">
+							<span class="key">案例类型：</span>
+							<div class="vals">
+								<a class="param-item default" data-type="caseType" href="javascript:;">二手房成交案例</a>
+								<a class="param-item" data-type="caseType" href="javascript:;">二手房报盘案例</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="screening-panel clear">
+					<div class="screening-list clear">
+						<span class="key">案例来源：</span>
+						<div class="vals">
+							<a class="param-item" ng-repeat="AnLiLaiYuan in ImportCaseData.n0_ImportCase_AnLiLaiYuanS track by $index" data-type="caseSource" href="javascript:;">{{AnLiLaiYuan}}</a>
+						</div>
+					</div>
+					<div class="screening-list clear">
+						<span class="key">朝向：</span>
+						<div class="vals">
+							<a class="param-item" ng-repeat="ChaoXiang in ImportCaseData.n0_ImportCase_ChaoXiangS track by $index" data-type="orientation" href="javascript:;">{{ChaoXiang}}</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="screening-panel clear">
+					<div class="screening-list clear">
+						<span class="key auto">装修类型：</span>
+						<div class="vals">
+							<a class="param-item" ng-repeat="ZhuangXiuQingKuang in ImportCaseData.n0_ImportCase_ZhuangXiuQingKuangS track by $index" data-type="decorateTtype" href="javascript:;">{{ZhuangXiuQingKuang}}</a>
+						</div>
+						<div class="screening-right">
+							<span class="key auto">户型：</span>
+							<div class="vals">
+								<a class="param-item" ng-repeat="HuXing in ImportCaseData.n0_ImportCase_HuXingS track by $index" data-type="houseType" href="javascript:;">{{HuXing}}</a>
+							</div>
+						</div>
+					</div>
+					<div class="screening-list clear" id="screeningInputs">
+						<span class="key">估价时间：</span>
+						<div class="input-panel" data-type="gujiaDate">
+							<input class="input input-data text-center" type="text" id="gjStartDate" disable-input ng-model="paramData.gjStartDate">
+							<span class="s">-</span>
+							<input class="input input-data text-center" type="text" id="gjEndDate" disable-input ng-model="paramData.gjEndDate">
+							<!-- <span class="s">年</span> -->
+							<a href="javascript:;" class="btn btn-blue btn-sm" data-type="gjDate">搜索</a>
+						</div>
+						<span class="key auto m-l">面积：</span>
+						<div class="input-panel" data-type="area">
+							<input class="input single-input text-center" type="text" ng-model="paramData.gjStartArea">
+							<span class="s">-</span>
+							<input class="input single-input text-center" type="text" ng-model="paramData.gjEndArea">
+							<span class="s">㎡</span>
+							<a href="javascript:;" class="btn btn-blue btn-sm" data-type="gjArea">搜索</a>
+						</div>
+						<span class="key auto m-l">总价：</span>
+						<div class="input-panel" data-type="totalPrice">
+							<input class="input single-input text-center" ng-model="paramData.gjStartPrice" ng-keyup="expression" type="text">
+							<span class="s">-</span>
+							<input class="input single-input text-center" ng-model="paramData.gjEndPrice" ng-keyup="expression" type="text">
+							<span class="s">万</span>
+							<a href="javascript:;" class="btn btn-blue btn-sm" data-type="gjTotalPrice">搜索</a>
+						</div>
+						<span class="key auto m-l">建成年代：</span>
+						<div class="input-panel" data-type="year">
+							<input class="input single-input text-center" type="text" ng-model="paramData.gjStartYear">
+							<span class="s">年</span>
+							<a href="javascript:;" class="btn btn-blue btn-sm" data-type="gjStartYear">搜索</a>
+						</div>
+					</div>
+				</div>
+
+
+			</div><!-- screening-hd end -->
+
+			<div class="require-data clear">
+				<span class="key">已选条件：</span>
+				<div class="req-params" id="reqParams">
+					<span ng-if="paramData.projectName" ng-class="{on:paramData.projectName}" class="param-item on active">{{paramData.projectName}}<!-- <b class="icon clear"></b> --></span>
+					<span ng-if="paramData.caseType" ng-class="{on:paramData.caseType}" class="param-item on active">{{paramData.caseType}}<!-- <b class="icon clear"></b> --></span>
+					<span ng-if="paramData.caseSource" ng-class="{on:paramData.caseSource}" class="param-item">{{paramData.caseSource}}<b class="icon clear"></b></span>
+					<span ng-if="paramData.houseType" ng-class="{on:paramData.houseType}" class="param-item">{{paramData.houseType}}<b class="icon clear"></b></span>
+					<span ng-if="paramData.orientation" ng-class="{on:paramData.orientation}" class="param-item">{{paramData.orientation}}<b class="icon clear"></b></span>
+					<span ng-if="paramData.decorateTtype" ng-class="{on:paramData.decorateTtype}" class="param-item">{{paramData.decorateTtype}}<b class="icon clear"></b></span>
+					<span ng-if="paramData.gujiaDate" ng-class="{on:paramData.gujiaDate}" class="param-item">{{paramData.gujiaDate}}<b class="icon clear"></b></span>
+					<span ng-if="paramData.area" ng-class="{on:paramData.area}" class="param-item">{{paramData.area+'㎡'}}<b class="icon clear"></b></span>
+					<span ng-if="paramData.totalPrice" ng-class="{on:paramData.totalPrice}" class="param-item">{{paramData.totalPrice+'万'}}<b class="icon clear"></b></span>
+					<span ng-if="paramData.year" ng-class="{on:paramData.year}" class="param-item">{{paramData.year}}<b class="icon clear"></b></span>
+				</div>
+				<a href="javascript:;" class="link-blue fl" ng-class="{null:!nullData}" id="clearAllParam">清空</a>
+			</div><!-- require-data end -->
+
+			<div class="result-data">
+				<table class="table table-striped table-border not-margin no-wamp">
+					<thead class="text-left">
+						<tr>
+							<th style="width:30px;">序号</th>
+							<th style="width:90px;">项目名称</th>
+							<th style="width:115px;">户型结构/面积</th>
+							<th style="width:40px;">朝向</th>
+							<th style="width:80px;">总价（万元）</th>
+							<th style="width:85px;">单价（元/㎡）</th>
+							<th style="width:75px;">价值日期</th>
+							<th style="width:60px;">建成年代</th>
+							<th style="width:60px;">装修情况</th>
+							<th style="width:170px;">地址/房屋地址</th>
+							<th style="width:50px;">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody id="caseTableList">
+						<tr ng-if="caseDataIsNull" class="on">
+							<td class="text-center" colspan="11" style="height:320px;">暂无数据</td>
+						</tr>
+						<tr ng-repeat="data in caseTableListData track by $index">
+							<td data-id="{{data.TID}}" data-data="{{data}}">{{$index+1}}</td>
+							<td title="{{data.ResidentialAreaName}}">{{data.ResidentialAreaName | subStr:6}}</td>
+							<td>{{data.UnitShape}}/{{data.BuildingArea || '--'}}㎡</td>
+							<td>{{data.Toward}}</td>
+							<td>{{data.TotalPrice/10000 | numberStr:0}}</td>
+							<td>{{data.UnitPrice}}</td>
+							<td>{{data.CaseTime | limitTo:10}}</td>
+							<td>{{data.BuildingCompletedYear || '--'}}</td>
+							<td>{{data.Decoration || '--'}}</td>
+							<td title="{{data.Address}}">{{data.Address || '--' | subStr:13}}</td>
+							<td><span class="exist"><b class="icon"></b>已选</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div><!-- result-data end -->
+			<div class="contrast-case-ft clear">
+				<div class="hint-text fl">注：案例是云房数据清洗后的数据</div>
+				<div class="btns fr">
+					<a href="javascript:;" class="btn btn-red" ng-click="importCaseDataFn()">导入对比案例</a>
+				</div>
+				<tm-pagination conf="paginationConf" class="fr"></tm-pagination>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- 查看实例位置弹窗 -->
+<div class="pop-content" id="appraisalObjPop">
+	<div class="pop-title">
+		<h2 class="title">估价对象地址</h2>
+		<a href="javascript:;" class="close-pop icon pa"></a>
+	</div>
+	<div class="pop-bd">
+		<div class="appraisal-map" id="appraisalMap"></div>
+	</div>
+</div>
+
+<report-next create-report="createReport()" next-step="nextStep()" prev-step="prevStep()" finish-report="finishReport()" is-show-prev="isShowPrev" is-show-next="isShowNext" is-finish-report="isFinishReport" is-hide-fixcontent="isHideFixcontent" is-show-income="isShowIncome" income-result="n0_ShouYiFa_FangDiChanJiaZhiCeSuanJieGuo" is-show-method="isShowMethod" is-show-costing="isShowCosting" costing-result="n0_ChengBenFa_FangDiChanDanJia"></report-next>

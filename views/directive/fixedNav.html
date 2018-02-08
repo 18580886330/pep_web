@@ -1,0 +1,15 @@
+<div ng-show="isHideFixcontent" class="fixed-content text-right">
+	<div class="container">
+		<!-- 收益法计算值显示 -->
+		<div class="income-result" ng-show="isShowIncome">房地产价值测算结果<strong class="link-red">{{incomeResult}}</strong>元/㎡</div>
+		<!-- 成本法计算值显示 -->
+		<div class="income-result" ng-show="isShowCosting">房地产单价<strong class="link-red">{{costingResult}}</strong>元/㎡</div>
+		<!-- 按钮控制 -->
+		<a ng-click="prevStep()" ng-show="isShowPrev" class="btn btn-blue">上一步</a>
+		<span ng-hide="isShowMethod">
+			<a ng-click="nextStep()" ng-show="isShowNext" class="btn btn-blue">下一步</a>
+			<a href="javascript:;" ng-click="createReport()" class="btn btn-blue">保存报告</a>
+		</span>
+		<a href="javascript:;" ng-show="isFinishReport" ng-click="finishReport()" class="btn btn-blue">完成报告</a>
+	</div>
+</div>

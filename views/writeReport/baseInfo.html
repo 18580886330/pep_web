@@ -1,0 +1,431 @@
+<step-nav></step-nav>
+<div class="baseinfo-content padding-l-r-20">
+	<div class="height10"></div>
+	<div class="height10"></div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 138px;">估价项目名称</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例：xxx省xxx市xxxx区xxxxx街道xxx栋xxx单元xxx户" ng-model="JiChuXinXiData.n0_JiChuXinXi_GuJiaXiangMuMingChen"></td>
+		</tr>
+		<tr>
+			<td>估价目的</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="GuJiaMuDe in JiChuXinXiData.n0_JiChuXinXi_GuJiaMuDeS"><input type="radio" ng-value="GuJiaMuDe" ng-model="JiChuXinXiData.n0_JiChuXinXi_GuJiaMuDe">{{GuJiaMuDe}}</label>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="height10"></div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 138px;">报告编号</td>
+			<td style="width:360px;" class="padding-3"><input type="text" class="input" ng-model="JiChuXinXiData.n0_JiChuXinXi_BaoGaoBianHao"></td>
+			<td style="width: 138px;">报告流水号</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="JiChuXinXiData.n0_JiChuXinXi_BaoGaoLiuShuiHao"></td>
+		</tr>
+		<tr>
+			<td>房地产评估机构</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="JiChuXinXiData.n0_JiChuXinXi_FangDiChanPingGuJiGou"></td>
+			<td>紧急状况</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="JiChuXinXiData.n0_JiChuXinXi_JinJiZhuangKuang" ng-options="JinJiZhuangKuang for JinJiZhuangKuang in JiChuXinXiData.n0_JiChuXinXi_JinJiZhuangKuangS"></select></div></td>
+		</tr>
+		<tr>
+			<td>报告撰写人员</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="JiChuXinXiData.n0_JiChuXinXi_BaoGaoZhuanXieRenYuan"></td>
+			<td>报单人</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="JiChuXinXiData.n0_JiChuXinXi_BaoDanRen"></td>
+		</tr>
+		<tr>
+			<td>报告使用方</td>
+			<td class="padding-3"><div class="select-pull"><select class="down-menu" ng-model="JiChuXinXiData.n0_JiChuXinXi_BaoGaoShiYongFang" ng-options="BaoGaoShiYongFang for BaoGaoShiYongFang in JiChuXinXiData.n0_JiChuXinXi_BaoGaoShiYongFangS"></select></div></td>
+			<td>报单机构</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="JiChuXinXiData.n0_JiChuXinXi_BaoDanJiGou"></td>
+		</tr>
+		<tr>
+			<td>支行/分行</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例如：车公庄支行" ng-model="JiChuXinXiData.n0_JiChuXinXi_ZhiXingFenXing"></td>
+			<td>联系方式</td>
+			<td class="padding-3"><input type="text" class="input" ng-model="JiChuXinXiData.n0_JiChuXinXi_LianXiFangShi"></td>
+		</tr>
+		<tr>
+			<td ng-click="saveGjwtr()">委托方类型</td>
+			<td class="padding-3">
+				<div class="radios-panel">
+					<label ng-repeat="WeiTuoFangLeiXing in JiChuXinXiData.n0_JiChuXinXi_WeiTuoFangLeiXingS"><input type="radio" ng-value="WeiTuoFangLeiXing" ng-model="JiChuXinXiData.n0_JiChuXinXi_WeiTuoFangLeiXing">{{WeiTuoFangLeiXing}}</label>
+				</div>
+			</td>
+			<td>价值时点</td>
+			<td class="padding-3"><input type="text" class="input" placeholder="例：2016年07月12日" ng-model="JiChuXinXiData.n0_JiChuXinXi_JiaZhiShiDian"></td>
+		</tr>
+	</table>
+	<div class="height10"></div>
+	<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="width: 138px;">注册房地产估价师</td>
+			<td class="padding-3">
+				<div class="person-panel">
+					<strong class="uname">{{JiChuXinXiData.n0_JiChuXinXi_GuJiaShiXingMing1}}</strong><span class="register-id">注册号：{{JiChuXinXiData.n0_JiChuXinXi_GuJiaShiZhuCeHao1}}</span>
+				</div>
+				<div class="person-panel">
+					<strong class="uname">{{JiChuXinXiData.n0_JiChuXinXi_GuJiaShiXingMing2}}</strong><span class="register-id">注册号：{{JiChuXinXiData.n0_JiChuXinXi_GuJiaShiZhuCeHao2}}</span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>估价委托人</td>
+			<td class="padding-3">
+				<div id="gjClientContent" ng-show="JiChuXinXiData.n0_JiChuXinXi_WeiTuoFangLeiXing=='个人'">
+					<div class="add-person" style="display:block;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某1" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing1">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing1" class="s-input s-select" ng-options="wZhengJianLeiXing1 for wZhengJianLeiXing1 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing1S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao1">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi1">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某2" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing2">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing2" class="s-input s-select" ng-options="wZhengJianLeiXing2 for wZhengJianLeiXing2 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing2S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao2">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi2">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某3" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing3">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing3" class="s-input s-select" ng-options="wZhengJianLeiXing3 for wZhengJianLeiXing3 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing3S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao3">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi3">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某4" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing4">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing4" class="s-input s-select" ng-options="wZhengJianLeiXing4 for wZhengJianLeiXing4 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing4S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao4">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi4">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某5" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing5">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing5" class="s-input s-select" ng-options="wZhengJianLeiXing5 for wZhengJianLeiXing5 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing5S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao5">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi5">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某6" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing6">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing6" class="s-input s-select" ng-options="wZhengJianLeiXing6 for wZhengJianLeiXing6 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing6S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao6">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi6">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某7" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing7">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing7" class="s-input s-select" ng-options="wZhengJianLeiXing7 for wZhengJianLeiXing7 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing7S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao7">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi7">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某8" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing8">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing8" class="s-input s-select" ng-options="wZhengJianLeiXing8 for wZhengJianLeiXing8 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing8S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao8">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi8">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某9" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing9">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing9" class="s-input s-select" ng-options="wZhengJianLeiXing9 for wZhengJianLeiXing9 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing9S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao9">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi9">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某10" ng-model="JiChuXinXiData.n0_JiChuXinXi_wXingMing10">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing10" class="s-input s-select" ng-options="wZhengJianLeiXing10 for wZhengJianLeiXing10 in JiChuXinXiData.n0_JiChuXinXi_wZhengJianLeiXing10S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wZhengJianHao10">
+						</div>
+						<div class="item">
+							<span class="key">地址</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_wDiZhi10">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,0,'gjClientContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,0,'gjClientContent','add-person')"></a>
+					</div>
+				</div>
+
+				<!-- 企业 -->
+				<div id="gjEnterpriseContent" ng-show="JiChuXinXiData.n0_JiChuXinXi_WeiTuoFangLeiXing=='企业'">
+					<div class="add-person" style="display:block;">
+						<div class="item">
+							<span class="key">单位名称</span><input type="text" class="s-input company-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiMingChen1">
+							<span class="key">法定代表人</span><input type="text" class="s-input b-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_FaDingDaiBiaoRen1">
+							<span class="key">单位地址</span><input type="text" class="s-input address" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiDiZhi1">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">单位名称</span><input type="text" class="s-input company-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiMingChen2">
+							<span class="key">法定代表人</span><input type="text" class="s-input b-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_FaDingDaiBiaoRen2">
+							<span class="key">单位地址</span><input type="text" class="s-input address" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiDiZhi2">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">单位名称</span><input type="text" class="s-input company-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiMingChen3">
+							<span class="key">法定代表人</span><input type="text" class="s-input b-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_FaDingDaiBiaoRen3">
+							<span class="key">单位地址</span><input type="text" class="s-input address" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiDiZhi3">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">单位名称</span><input type="text" class="s-input company-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiMingChen4">
+							<span class="key">法定代表人</span><input type="text" class="s-input b-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_FaDingDaiBiaoRen4">
+							<span class="key">单位地址</span><input type="text" class="s-input address" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiDiZhi4">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display: none;">
+						<div class="item">
+							<span class="key">单位名称</span><input type="text" class="s-input company-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiMingChen5">
+							<span class="key">法定代表人</span><input type="text" class="s-input b-name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_FaDingDaiBiaoRen5">
+							<span class="key">单位地址</span><input type="text" class="s-input address" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_DanWeiDiZhi5">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,1,'gjEnterpriseContent','add-person')"></a>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>借款人信息</td>
+			<td class="padding-3">
+				<!-- 个人 -->
+				<div id="jkBorrowerContent" ng-show="JiChuXinXiData.n0_JiChuXinXi_WeiTuoFangLeiXing=='个人'">
+					<div class="add-person" style="display:block;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing1">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing1" class="s-input s-select" ng-options="jZhengJianLeiXing1 for jZhengJianLeiXing1 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing1S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao1">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing2">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing2" class="s-input s-select" ng-options="jZhengJianLeiXing2 for jZhengJianLeiXing2 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing2S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao2">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing3">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing3" class="s-input s-select" ng-options="jZhengJianLeiXing3 for jZhengJianLeiXing3 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing3S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao3">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing4">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing4" class="s-input s-select" ng-options="jZhengJianLeiXing4 for jZhengJianLeiXing4 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing4S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao4">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing5">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing5" class="s-input s-select" ng-options="jZhengJianLeiXing5 for jZhengJianLeiXing5 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing5S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao5">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing6">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing6" class="s-input s-select" ng-options="jZhengJianLeiXing6 for jZhengJianLeiXing6 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing6S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao6">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing7">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing7" class="s-input s-select" ng-options="jZhengJianLeiXing7 for jZhengJianLeiXing7 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing7S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao7">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing8">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing8" class="s-input s-select" ng-options="jZhengJianLeiXing8 for jZhengJianLeiXing8 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing8S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao8">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing9">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing9" class="s-input s-select" ng-options="jZhengJianLeiXing9 for jZhengJianLeiXing9 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing9S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao9">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">姓名</span><input type="text" class="s-input name" placeholder="例：某某某" ng-model="JiChuXinXiData.n0_JiChuXinXi_jXingMing10">
+							<span class="key papers-type">证件类型</span><select ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing10" class="s-input s-select" ng-options="jZhengJianLeiXing10 for jZhengJianLeiXing10 in JiChuXinXiData.n0_JiChuXinXi_jZhengJianLeiXing10S"></select>
+							<span class="key papers">证件号</span><input type="text" class="s-input papers-no" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jZhengJianHao10">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,2,'jkBorrowerContent','add-person')"></a>
+					</div>
+				</div>
+				<!-- 企业 -->
+				<div id="jkEnterpriseContent" ng-show="JiChuXinXiData.n0_JiChuXinXi_WeiTuoFangLeiXing=='企业'">
+					<div class="add-person" style="display:block;">
+						<div class="item">
+							<span class="key">单位名称</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jDanWeiMingChen1">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">单位名称</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jDanWeiMingChen2">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">单位名称</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jDanWeiMingChen3">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">单位名称</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jDanWeiMingChen4">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+					</div>
+
+					<div class="add-person" style="display:none;">
+						<div class="item">
+							<span class="key">单位名称</span>
+							<input type="text" class="s-input full-input" placeholder="例：232323232323232323" ng-model="JiChuXinXiData.n0_JiChuXinXi_jDanWeiMingChen5">
+						</div>
+						<a href="javascript:;" class="icon remove" ng-click="removeClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+						<a href="javascript:;" class="icon add" ng-click="addClientFn($event,3,'jkEnterpriseContent','add-person')"></a>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<report-next create-report="createReport()" next-step="nextStep()" prev-step="prevStep()" finish-report="finishReport()" is-show-prev="isShowPrev" is-show-next="isShowNext" is-finish-report="isFinishReport" is-hide-fixcontent="isHideFixcontent" is-show-income="isShowIncome" income-result="n0_ShouYiFa_FangDiChanJiaZhiCeSuanJieGuo" is-show-method="isShowMethod" is-show-costing="isShowCosting" costing-result="n0_ChengBenFa_FangDiChanDanJia"></report-next>

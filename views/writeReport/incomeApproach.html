@@ -1,0 +1,104 @@
+<step-nav></step-nav>
+<div class="calculate-table padding-l-r-20">
+	<div class="tab-content">
+		<!-- calculateTabHd -->
+		<ul class="tab-hd clear" id="">
+			<li><a ui-sref="writeReport.marketApproach">市场法</a></li>
+			<li><a ui-sref="writeReport.costApproach">成本法</a></li>
+			<li class="active"><a ui-sref="writeReport.incomeApproach">收益法</a></li>
+		</ul>
+		<div class="tab-bd clear" id="calculateTabBd">
+			<div class="panel">
+				<div class="income-content" id="incomeContent">
+				  <table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <tr>
+					    <td style="width:140px;">月租金</td>
+					    <td style="width:310px;" class="pv padding-3"><input class="input" ng-model="ShouYiFaData.n0_ShouYiFa_YueZuJin" type="text" data-text="说明：根据委托估价方提供的有关资料，以及估价人员调查周围房地产市场行情。"><span class="pa unit">元／月</span></td>
+					    <td style="width:140px;">其他收入</td>
+					    <td style="width:310px;" colspan="2" class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_QiTaShouRu"><!-- <div class="result-number" data-text="说明：若有租赁保证金、押金等，按单利计算利息收入。">{{ShouYiFaData.n0_ShouYiFa_QiTaShouRu}}</div> --><span class="pa unit">元</span></td>
+					  </tr>
+					  <tr>
+					    <td>日租金</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_RiZuJin"><!-- <div class="result-number" data-text="说明：根据委托估价方提供的有关资料，以及估价人员调查周围房地产市场行情。">{{ShouYiFaData.n0_ShouYiFa_RiZuJin}}</div> --><span class="pa unit">元/㎡</span></td>
+					    <td>押金、保证金等</td>
+					    <td style="width:149px;" class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_YaJinBaoZhengJin"><!-- <div class="result-number" data-text="说明：请填写一年期存款利率">{{ShouYiFaData.n0_ShouYiFa_YaJinBaoZhengJin}}</div> --><span class="pa unit">元</span></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_YaJinBaoZhengJinf"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>空置期</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_KongZhiQi" data-text="说明：指房屋在出租过程中遇到没有出租出去的空置期，按天计算。"><span class="pa unit">天</span></td>
+					    <td>&nbsp;</td>
+					    <td colspan="2">&nbsp;</td>
+					  </tr>
+					  <tr>
+					    <td>年房地产有效毛收入</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_NianFangDiChanYouXiaoMaoShouYi"><!-- <div class="result-number"><strong class="link-red">{{ShouYiFaData.n0_ShouYiFa_NianFangDiChanYouXiaoMaoShouYi}}</strong></div> --><span class="pa unit">元</span></td>
+					    <td>年潜在毛收入</td>
+					    <td colspan="2" class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_NianFangDiChanQianZaiMaoShouYi"><!-- <div class="result-number" data-text="说明：按365天/年计算"><strong class="link-red">{{ShouYiFaData.n0_ShouYiFa_NianFangDiChanQianZaiMaoShouYi}}</strong></div> --><span class="pa unit">元</span></td>
+					  </tr>
+					</table>
+					<div class="height10"></div>
+					<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <tr>
+					    <td style="width:140px;">维修费</td>
+					    <td style="width:154px;" class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_WeiXiuFei" data-text="说明：（费率在1%-4%之间）指为保证房屋正常使用每年需支付的修缮费用，按年房地产有效毛收益为基础按比例{{ShouYiFaData.n0_ShouYiFa_WeiXiuFeif}}%测算。"><!-- <div class="result-number" data-text="说明：指为保证房屋正常使用每年需支付的修缮费用，按年房地产有效毛收益为基础按比例&100&%测算。">{{ShouYiFaData.n0_ShouYiFa_WeiXiuFei}}</div> --><span class="pa unit">元</span></td>
+					    <td style="width:147px;" class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_WeiXiuFeif"><span class="pa unit">%</span></td>
+					    <td style="width:140px;">保险费</td>
+					    <td style="width:149px;" class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_BaoXianFeif"><span class="pa unit">元</span></td>
+					    <td style="width:144px;" class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_BaoXianFei"><!-- <div data-text="说明：指房产所有人为使自己的房产避免意外损失而向保险公司支付的费用，可按年房屋现值的0.1%计。" class="result-number">{{ShouYiFaData.n0_ShouYiFa_BaoXianFei}}</div> --><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>管理费</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_GuanLiFei" data-text="说明：（费率在1%-3%之间）指对出租房屋进行的必要管理所需的费用，按年房地产有效毛收益为基础按比例{{ShouYiFaData.n0_ShouYiFa_GuanLiFeif}}%测算。"><!-- <div class="result-number" data-text="说明：指对出租房屋进行的必要管理所需的费用，按年房地产有效毛收益为基础按比例&100&%测算。">{{ShouYiFaData.n0_ShouYiFa_GuanLiFei}}</div> --><span class="pa unit">元</span></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_GuanLiFeif"><span class="pa unit">%</span></td>
+					    <td>个人综合税费</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_GeRenZongHeShuiFei"><!-- <div class="result-number" data-text="说明：根据《北京市地方税务局关于个人出租房屋税收管理工作的补充通知》（京地税征[2008]237号）及《关于全面推开营业税改征增值税试点的通知》【财税[2016]36号】，并向北京市税务部门咨询，对个人住房出租按照5%的综合税率计征税费，包括房产税、个人所得税等。">{{ShouYiFaData.n0_ShouYiFa_GeRenZongHeShuiFei}}</div> --><span class="pa unit">元</span></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_GeRenZongHeShuiFeif"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>城市土地使用税</td>
+					    <td colspan="2" class="pv padding-3">
+					    	<div class="result-number item pv fl"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_ChengZhenTuDiShiYongShui"><span class="pa unit">元</span></div>
+					    	<!-- <div class="result-number item pv fl">{{ShouYiFaData.n0_ShouYiFa_ChengZhenTuDiShiYongShui}}<span class="pa unit">元</span></div> -->
+					    	<div class="input-border fl pv"><input type="text" class="input" ng-model="ShouYiFaData.n0_ShouYiFa_MeiPingMiTuDiNaShuiEf"><span class="pa unit">元</span></div>
+					    	<div class="input-border fr pv"><input type="text" class="input" ng-model="ShouYiFaData.n0_ShouYiFa_RongJiLvf"><span class="pa unit">%</span></div>
+					    </td>
+					    <td>印花税</td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_YinHuaShui"><!-- <div class="result-number">{{ShouYiFaData.n0_ShouYiFa_YinHuaShui}}</div> --><span class="pa unit">元</span></td>
+					    <td class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_YinHuaShuif"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>年度总费用</td>
+					    <td colspan="2" class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_NianZongFeiYong"><!-- <div class="result-number" data-text="说明：如果年总费用为零，请检查权属状况所有权人性质是否选择"><strong class="link-red">{{ShouYiFaData.n0_ShouYiFa_NianZongFeiYong}}</strong></div> --><span class="pa unit">元</span></td>
+					    <td>年房地产净收益</td>
+					    <td colspan="2" class="pv padding-3"><input class="input" type="text" ng-model="ShouYiFaData.n0_ShouYiFa_NianFangDiChanJingShouYi"><!-- <div class="result-number" data-text="说明：年租金净收益=年房地产有效毛收益-年总费用"><strong class="link-red">{{ShouYiFaData.n0_ShouYiFa_NianFangDiChanJingShouYi}}</strong></div> --><span class="pa unit">元</span></td>
+					  </tr>
+					</table>
+					<div class="height10"></div>
+					<table class="table table-noborder table-background table-input-indent box-sizing" width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <tr>
+					    <td style="width:143px;">是否租金递增</td>
+					    <td style="width:315px;" class="pv padding-3"><div class="select-pull"><select class="down-menu" data-text="说明：结合该区域房屋租售的调查及预测情况。" ng-model="ShouYiFaData.n0_ShouYiFa_ShiFuZuJinDiZeng" ng-options="ShiFuZuJinDiZeng for ShiFuZuJinDiZeng in ShouYiFaData.n0_ShouYiFa_ShiFuZuJinDiZengS"></select></div></td>
+					    <td style="width:142px;">报酬率</td>
+					    <td style="width:308px;" class="pv padding-3"><input class="input" type="text" data-text="说明：结合该区域房屋租售比例的调查情况，采用市场提取法确定。" ng-model="ShouYiFaData.n0_ShouYiFa_BaoChouLvf"><span class="pa unit">%</span></td>
+					  </tr>
+					  <tr>
+					    <td>租金递增比率</td>
+					    <td class="pv padding-3"><input class="input" type="text" data-text="说明：结合该区域房屋租售的调查及预测情况。" ng-model="ShouYiFaData.n0_ShouYiFa_ZuJinDiZengBiLvf"><span class="pa unit">%</span></td>
+					    <td>收益年限</td>
+					    <td class="pv padding-3"><input class="input" type="text" data-text="说明：经估价人员现场查勘和判断，评估中可获收益年限以土地剩余年限计算。" ng-model="ShouYiFaData.n0_ShouYiFa_KeHuoShouYiNianXian"><span class="pa unit">年</span></td>
+					  </tr>
+					  <tr>
+					    <td>递增年限</td>
+					    <td class="pv padding-3"><input class="input" type="text" data-text="说明：结合该区域房屋租售的调查及预测情况。" ng-model="ShouYiFaData.n0_ShouYiFa_DiZengNianXian"><span class="pa unit">年</span></td>
+					    <td>&nbsp;</td>
+					    <td>&nbsp;</td>
+					  </tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<report-next create-report="createReport()" next-step="nextStep()" prev-step="prevStep()" finish-report="finishReport()" is-show-prev="isShowPrev" is-show-next="isShowNext" is-finish-report="isFinishReport" is-hide-fixcontent="isHideFixcontent" is-show-income="isShowIncome" income-result="n0_ShouYiFa_FangDiChanJiaZhiCeSuanJieGuo" is-show-method="isShowMethod" is-show-costing="isShowCosting" costing-result="n0_ChengBenFa_FangDiChanDanJia"></report-next>
